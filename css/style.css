@@ -108,7 +108,7 @@ figure {
 .fh5co-cover,
 .fh5co-hero {
   position: relative;
-  height: 400px;
+  height: 250px;
   font-weight: 300;
 }
 @media screen and (max-width: 768px) {
