@@ -23,7 +23,6 @@
 		}
 	};
 
-
 	var mobileMenuOutsideClick = function() {
 
 		$(document).click(function (e) {
@@ -43,29 +42,6 @@
 
 	};
 
-
-	var scrollNavBar = function() {
-
-		if ( $(window).scrollTop() > 50)  {
-			$('body').addClass('scrolled');
-			$('.js-fh5co-nav-toggle').removeClass('fh5co-nav-white');
-		} else {
-			$('body').removeClass('scrolled');
-			$('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
-		}
-
-		$(window).scroll(function(){
-			if ( $(window).scrollTop() > 50)  {
-				$('body').addClass('scrolled');
-				$('.js-fh5co-nav-toggle').removeClass('fh5co-nav-white');
-			} else {
-				$('body').removeClass('scrolled');
-				$('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
-			}
-		});
-
-
-	};
 
 	var offcanvasMenu = function() {
 
@@ -128,6 +104,17 @@
 		});
 	};
 
+	var fullHeight = function() {
+
+		if ( !isMobile.any() ) {
+			$('.js-fullheight').css('height', $(window).height());
+			$(window).resize(function(){
+				$('.js-fullheight').css('height', $(window).height());
+			});
+		}
+
+	};
+
 
 
 	var contentWayPoint = function() {
@@ -156,7 +143,7 @@
 							}
 
 							el.removeClass('item-animate');
-						},  k * 50, 'easeInOutExpo' );
+						},  k * 200, 'easeInOutExpo' );
 					});
 					
 				}, 100);
@@ -221,13 +208,6 @@
 		$(".fh5co-loader").fadeOut("slow");
 	};
 
-	var counter = function() {
-		$('.js-counter').countTo({
-			 formatter: function (value, options) {
-	      return value.toFixed(options.decimals);
-	    },
-		});
-	};
 
 	var counterWayPoint = function() {
 		if ($('#fh5co-counter').length > 0 ) {
@@ -241,25 +221,46 @@
 		}
 	};
 
-	var parallax = function() {
-		if ( !isMobile.any()) {
-			$(window).stellar();
-		}
-	};
+	var sliderMain = function() {
+		
+	  	$('#fh5co-hero .flexslider').flexslider({
+			animation: "fade",
+			slideshowSpeed: 5000,
+			directionNav: true,
+			start: function(){
+				setTimeout(function(){
+					$('.slider-text').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+				}, 500);
+			},
+			before: function(){
+				setTimeout(function(){
+					$('.slider-text').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+				}, 500);
+			}
 
+	  	});
+
+	  	$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());	
+	  	$(window).resize(function(){
+	  		$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());	
+	  	});
+
+	};
 
 	
 	$(function(){
 		mobileMenuOutsideClick();
-		scrollNavBar();
 		offcanvasMenu();
 		burgerMenu();
 		contentWayPoint();
+		sliderMain();
 		dropdown();
 		goToTop();
 		loaderPage();
 		counterWayPoint();
-		parallax();
+		fullHeight();
 	});
 
 
