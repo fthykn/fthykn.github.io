@@ -131,9 +131,7 @@ ul, ol {
 	z-index: 40;
 }
 
-.open_menu{
 
-}
 
 .nav__list{
 	float: right;
@@ -354,15 +352,7 @@ ul, ol {
 
 /*about *******************************/
 
-.about{
-	width: 100%;
-	font-size: 16px;
-	background-image: 
-	background-repeat: no-repeat;
-	background-position: center center;
-	-webkit-background-size: cover;
-	        background-size: cover;
-}
+
 
 .about:after{
 	content: '';
@@ -505,9 +495,7 @@ ul, ol {
 	border-top: 1px solid rgba(255, 255, 255, .1);
 }
 
-.services__item{
-	
-}
+
 
 .services__item__text{
 	line-height: 28px;
@@ -685,7 +673,7 @@ ul, ol {
 
 .gallery__item:hover .gallery__item__hover{
 	height: 100%;
-	background-color: rgba(84, 0, 187, .8);
+	background-color: rgba(158, 58, 0, 0.8);
 }
 
 .gallery__item__hover{
@@ -809,7 +797,7 @@ ul, ol {
 }
 
 .gallery__item_2{
-	background-image: url(../images/photos/redstrip.jpg);
+	background-image: url(../images/photos/alif.jpg);
 }
 
 .gallery__item_3{
@@ -821,7 +809,7 @@ ul, ol {
 }
 
 .gallery__item_5{
-	background-image: url(../images/photos/essentials.jpg);
+	background-image: url(../images/photos/1cucio.jpg);
 }
 
 .gallery__item_6{
