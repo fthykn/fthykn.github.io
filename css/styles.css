@@ -813,11 +813,25 @@ ul, ol {
 }
 
 .gallery__item_6{
-	background-image: url(../images/photos/1LANGGENG.jpg);
+	background-image: url(../images/photos/hijab.jpg);
 }
 .gallery__item_7{
 	background-image: url(../images/photos/spi\ \(6\).jpg);
 }
+.gallery__item_8{
+	background-image: url(../images/photos/vlcsnap-2024-08-06-15h20m43s692.png);
+}
+.gallery__item_9{
+	background-image: url(../images/photos/vlcsnap-2024-08-06-16h57m54s447.png);
+}
+.gallery__item_10{
+	background-image: url(../images/photos/kawah.png);
+}
+
+
+
+
+
 
 .gallery__button{
 	display: block;
