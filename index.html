@@ -1,733 +1,508 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Hi, I'm Fthykn</title>
-	<!-- favicon -->
-	<link rel="shortcut icon" href="#">
-	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:500|Source+Code+Pro:300,400,600,700" rel="stylesheet">
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<!-- animate.css -->
-	<link rel="stylesheet" href="css/animate.min.css">
-	<!-- slider and carousel -->
-	<link rel="stylesheet" href="css/owlcarousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owlcarousel/owl.theme.default.min.css">
-	<link rel="stylesheet" href="css/slick.css">
-	<!-- popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<!-- icons set -->
-	<link rel="stylesheet" href="css/fontello.css">
-	<!-- custom main stylesheet -->
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fathiyakan — Graphic Designer & Web Creator</title>
+  <meta name="description" content="Perancang Grafis & Pembuat Website dengan pengalaman lebih dari 14 tahun." />
+  <meta name="author" content="Fathiyakan" />
+  <meta property="og:title" content="Fathiyakan — Graphic Designer & Web Creator" />
+  <meta property="og:description" content="Perancang Grafis & Pembuat Website dengan pengalaman lebih dari 14 tahun." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fthykn.github.io/" />
 
-	<style>
-        .video__hover__zoom {
-    
-    text-decoration: none;
-    color: #000;
-    transition: transform 0.3s ease, opacity 0.3s, color 0.3s;
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
-    position: absolute;
-    bottom: 45px;
-    right: 45px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
-   
-}
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --bg:#F5F0E8; --surface:#EDE6D6; --ink:#1A1410;
+      --gold:#9B6E2A; --accent:#C4452A; --orange:#D4651A;
+      --dark:#0E0E0C; --muted:rgba(26,20,16,0.42); --border:rgba(26,20,16,0.10);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--ink); font-family:'DM Sans',system-ui,sans-serif; font-weight:400; line-height:1.6; overflow-x:hidden; }
 
+    /* CURSOR */
+    * { cursor:none; }
+    #cursor { width:10px; height:10px; background:var(--orange); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .2s,height .2s,background .2s; mix-blend-mode:multiply; }
+    #cursor.hovered { width:34px; height:34px; background:var(--accent); opacity:.5; }
 
-        .video__hover__zoom:hover {
-			opacity: 1;
-			color: #2bf4a1;
-            transform: scale(1.1);
-        }
-    </style>
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(245,240,232,.9); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:.5px solid var(--border); padding:1.1rem 2.5rem; display:flex; justify-content:space-between; align-items:center; }
+    .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.12em; color:var(--ink); text-decoration:none; }
+    .nav-logo span { color:var(--accent); }
+    .nav-links { display:flex; gap:2rem; }
+    .nav-links a { font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--orange); }
+    .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; }
+    .nav-toggle span { width:22px; height:1.5px; background:var(--ink); display:block; transition:transform .3s,opacity .3s; }
+    .nav-toggle.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity:0; }
+    .nav-toggle.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    #hero { min-height:100vh; background:var(--bg); display:flex; flex-direction:column; justify-content:flex-end; padding:2.5rem; position:relative; overflow:hidden; }
+    #hero::before { content:''; position:absolute; inset:0; opacity:.025; background-image:radial-gradient(circle,#1A1410 1px,transparent 1px); background-size:24px 24px; pointer-events:none; }
+    #hero::after { content:''; position:absolute; top:-15%; right:-8%; width:50%; height:70%; background:radial-gradient(ellipse,rgba(155,110,42,.09) 0%,transparent 65%); pointer-events:none; }
+    .hero-inner { position:relative; z-index:1; }
+
+    /* Status dot */
+    .hero-status { display:flex; align-items:center; gap:10px; margin-top:1.25rem; }
+    .status-dot { width:7px; height:7px; border-radius:50%; background:var(--orange); flex-shrink:0; animation:blink 1.8s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .status-text { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
+
+    /* 2-column: nama kiri, about kanan */
+    .hero-cols { display:grid; grid-template-columns:1.1fr 1fr; gap:3.5rem; align-items:center; }
+    .hero-name { line-height:.87; }
+    .hero-name .line1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(72px,9.5vw,138px); letter-spacing:-.01em; color:var(--ink); display:block; }
+    .hero-name .line2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(72px,9.5vw,138px); letter-spacing:-.01em; color:var(--accent); display:block; }
+    .hero-name .dot { color:var(--ink); }
+
+    /* Kanan: about + CTA */
+    .hero-right { display:flex; flex-direction:column; gap:1.25rem; padding-bottom:.2rem; }
+    .hero-about-label { font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
+    .hero-about-headline { font-family:'DM Serif Display',Georgia,serif; font-size:19px; line-height:1.4; color:var(--ink); }
+    .hero-about-body { font-size:12.5px; color:var(--muted); line-height:1.88; }
+    .hero-about-body strong { color:var(--ink); font-weight:500; }
+    .hero-cta { display:flex; gap:10px; flex-wrap:wrap; padding-top:1.25rem; border-top:.5px solid var(--border); }
+
+    /* BUTTONS */
+    .btn-orange { background:var(--orange); color:#fff; padding:13px 1.8rem; border-radius:4px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; display:inline-block; transition:background .2s,transform .15s; font-family:'DM Sans',sans-serif; font-weight:500; }
+    .btn-orange:hover { background:#BF5716; transform:translateY(-1px); }
+    .btn-outline { border:.5px solid var(--border); color:var(--ink); padding:13px 1.8rem; border-radius:4px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; display:inline-block; transition:background .2s,transform .15s; font-family:'DM Sans',sans-serif; }
+    .btn-outline:hover { background:rgba(26,20,16,.04); transform:translateY(-1px); }
+    .btn-outline-light { border:.5px solid rgba(237,232,220,.28); color:#EDE8DC; padding:13px 1.8rem; border-radius:4px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; display:inline-block; transition:background .2s,transform .15s; font-family:'DM Sans',sans-serif; }
+    .btn-outline-light:hover { background:rgba(237,232,220,.07); transform:translateY(-1px); }
+
+    /* ── LAYANAN ── */
+    #layanan { background:var(--surface); padding:5rem 2.5rem; border-top:.5px solid var(--border); }
+    .layanan-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1.5rem; }
+    .layanan-title { font-family:'Bebas Neue',sans-serif; font-size:38px; letter-spacing:.05em; color:var(--ink); }
+    .layanan-sub { font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+    .layanan-label { font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem; }
+
+    /* ACCORDION */
+    .service-row { border-bottom:.5px solid var(--border); overflow:hidden; }
+    .service-row:last-child { border-bottom:none; }
+    .service-header { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 0; cursor:pointer; user-select:none; }
+    .service-header:hover .s-name { color:var(--orange); }
+    .s-name { font-size:15px; color:var(--ink); transition:color .2s; font-weight:400; }
+    .s-tools { font-size:10px; color:var(--muted); letter-spacing:.06em; margin-top:2px; }
+    .s-toggle { font-size:18px; color:var(--muted); transition:transform .35s ease; line-height:1; flex-shrink:0; }
+    .service-row.open .s-toggle { transform:rotate(45deg); }
+    .s-detail { max-height:0; overflow:hidden; transition:max-height .5s ease; }
+    .service-row.open .s-detail { max-height:700px; }
+    .s-detail-inner { padding-bottom:1.5rem; }
+    .detail-label { font-size:11px; color:var(--muted); margin-bottom:.6rem; }
+    .client-pill { display:inline-block; font-size:10px; padding:4px 10px; border-radius:3px; border:.5px solid var(--border); color:var(--muted); margin:0 4px 4px 0; letter-spacing:.04em; transition:border-color .2s,color .2s; }
+    .client-pill:hover { border-color:rgba(155,110,42,.4); color:var(--gold); }
+    .stat-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; color:var(--ink); background:#fff; border:.5px solid var(--border); border-radius:3px; padding:5px 10px; margin:0 4px 4px 0; }
+    .stat-num { font-family:'Bebas Neue',sans-serif; font-size:17px; color:var(--orange); line-height:1; }
+    .portfolio-divider { height:.5px; background:var(--border); margin:1rem 0; }
+
+    /* PORTFOLIO GRID */
+    .portfolio-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+    .portfolio-card { position:relative; border-radius:6px; overflow:hidden; aspect-ratio:1; cursor:pointer; background:var(--bg); border:.5px solid var(--border); transition:transform .2s,box-shadow .2s; }
+    .portfolio-card:hover { transform:scale(1.03); box-shadow:0 6px 20px rgba(26,20,16,.12); }
+    .portfolio-card img { width:100%; height:100%; object-fit:cover; display:block; }
+    .portfolio-placeholder { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--bg); gap:6px; padding:8px; }
+    .placeholder-icon { font-size:22px; opacity:.2; }
+    .placeholder-text { font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-align:center; line-height:1.5; }
+    .p-overlay { position:absolute; inset:0; background:rgba(26,20,16,0); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:background .25s; gap:4px; }
+    .portfolio-card:hover .p-overlay { background:rgba(26,20,16,.62); }
+    .p-title { font-size:11px; font-weight:500; color:#fff; opacity:0; transform:translateY(6px); transition:opacity .2s,transform .2s; text-align:center; padding:0 8px; letter-spacing:.04em; }
+    .p-tag { font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); opacity:0; transform:translateY(6px); transition:opacity .2s .05s,transform .2s .05s; }
+    .portfolio-card:hover .p-title, .portfolio-card:hover .p-tag { opacity:1; transform:translateY(0); }
+
+    /* WEBSITE LIST */
+    .web-list { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+    .web-item { display:flex; justify-content:space-between; align-items:center; padding:10px 12px; background:#fff; border:.5px solid var(--border); border-radius:5px; text-decoration:none; transition:border-color .2s; }
+    .web-item:hover { border-color:rgba(212,101,26,.35); }
+    .web-item-name { font-size:12px; color:var(--ink); font-weight:500; }
+    .web-item-sub { font-size:10px; color:var(--muted); margin-top:1px; }
+    .web-item-arrow { font-size:11px; color:var(--orange); flex-shrink:0; }
+
+    /* VIDEO GRID */
+    .video-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .video-card { border-radius:6px; overflow:hidden; border:.5px solid var(--border); background:var(--bg); }
+    .video-card iframe { width:100%; display:block; border:none; }
+    .video-hint { font-size:10px; color:var(--muted); margin-top:8px; letter-spacing:.04em; font-style:italic; }
+
+    /* LIGHTBOX */
+    #lightbox { position:fixed; inset:0; z-index:1000; background:rgba(14,14,12,.93); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; padding:2rem; }
+    #lightbox.active { opacity:1; pointer-events:auto; }
+    .lb-inner { position:relative; max-width:820px; width:100%; }
+    #lbImg { width:100%; border-radius:6px; display:block; max-height:80vh; object-fit:contain; }
+    .lb-close { position:absolute; top:-44px; right:0; background:none; border:none; color:rgba(237,232,220,.55); font-size:26px; line-height:1; padding:4px 8px; transition:color .2s; }
+    .lb-close:hover { color:#fff; }
+    .lb-prev, .lb-next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(245,240,232,.1); border:.5px solid rgba(237,232,220,.15); color:rgba(237,232,220,.7); font-size:20px; width:40px; height:40px; border-radius:4px; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+    .lb-prev { left:-54px; } .lb-next { right:-54px; }
+    .lb-prev:hover,.lb-next:hover { background:rgba(245,240,232,.2); }
+    .lb-caption { margin-top:1rem; text-align:center; }
+    .lb-caption-title { font-size:14px; color:#EDE8DC; font-weight:500; }
+    .lb-caption-sub { font-size:11px; color:rgba(237,232,220,.45); letter-spacing:.08em; margin-top:3px; }
+
+    /* CTA */
+    #contact { background:var(--dark); padding:6rem 2.5rem; text-align:center; position:relative; overflow:hidden; }
+    #contact::before { content:''; position:absolute; top:-20%; left:50%; transform:translateX(-50%); width:60%; height:80%; background:radial-gradient(ellipse,rgba(212,101,26,.09) 0%,transparent 65%); pointer-events:none; }
+    .cta-inner { position:relative; z-index:1; }
+    .cta-title1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(52px,10vw,84px); letter-spacing:.02em; color:#EDE8DC; line-height:.88; }
+    .cta-title2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(52px,10vw,84px); letter-spacing:.02em; color:var(--orange); line-height:.88; margin-bottom:2.5rem; }
+    .cta-buttons { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:1.5rem; }
+    .cta-loc { font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,232,220,.22); }
+
+    /* FOOTER */
+    footer { background:#080806; border-top:.5px solid rgba(237,232,220,.06); padding:1.25rem 2.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-logo { font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:.1em; color:rgba(237,232,220,.3); text-decoration:none; }
+    .footer-copy { font-size:10px; color:rgba(237,232,220,.18); letter-spacing:.08em; }
+    .footer-links { display:flex; gap:1.5rem; }
+    .footer-links a { font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(237,232,220,.3); text-decoration:none; transition:color .2s; }
+    .footer-links a:hover { color:rgba(237,232,220,.7); }
+
+    /* SCROLL TOP */
+    #scroll-top { position:fixed; bottom:2rem; right:2rem; width:42px; height:42px; background:var(--orange); color:#fff; border:none; border-radius:4px; font-size:18px; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s,transform .2s; z-index:50; }
+    #scroll-top.visible { opacity:1; pointer-events:auto; }
+    #scroll-top:hover { transform:translateY(-2px); }
+
+    /* RESPONSIVE */
+    @media (max-width:900px) {
+      .hero-cols { grid-template-columns:1fr; gap:2rem; }
+      .hero-name .line1, .hero-name .line2 { font-size:clamp(72px,18vw,120px); }
+    }
+    @media (max-width:768px) {
+      nav { padding:1rem 1.5rem; }
+      .nav-links { display:none; flex-direction:column; gap:1.5rem; position:absolute; top:100%; left:0; right:0; background:rgba(245,240,232,.97); padding:1.5rem 2rem; border-bottom:.5px solid var(--border); }
+      .nav-links.open { display:flex; }
+      .nav-toggle { display:flex; }
+      #hero { padding:1.5rem; padding-top:80px; }
+      #layanan { padding:3rem 1.5rem; }
+      .portfolio-grid { grid-template-columns:repeat(2,1fr); }
+      .web-list { grid-template-columns:1fr; }
+      .video-grid { grid-template-columns:1fr; }
+      .lb-prev { left:-8px; } .lb-next { right:-8px; }
+      #contact { padding:4rem 1.5rem; }
+      footer { padding:1.25rem 1.5rem; flex-direction:column; align-items:flex-start; }
+      #cursor { display:none; } * { cursor:auto; }
+    }
+  </style>
 </head>
 <body>
-	
-<!--	Logo and menu
-****************************-->
-	<header class="header">
-		<div class="inner-header container">
-		</div>
-    </header>
-	
-<!--	Services
-*****************************-->
-<section id="services" class="services section">
-  <div class="container">
-    <div class="services__header-block">
-      
-      <h1 class="services__header col-xs-12 col-sm-6">Fathiyakan.</h1>
-       
-      <div class="arrow-controls col-xs-12 col-sm-6">
-        
-    <!-- arrows -->
-        <div class="arrow arrow_back">
-          <div class="arrow__line-short arrow__line_up"></div>
-          <div class="arrow__line"></div>
-          <div class="arrow__line-short arrow__line_down"></div>
-        </div>
-          
-        <div class="arrow arrow_front">
-          <div class="arrow__line-short arrow__line_up"></div>
-          <div class="arrow__line"></div>
-          <div class="arrow__line-short arrow__line_down"></div>
-        </div>
-          
-      </div>
-    </div>
-    <hr class="services__line">
 
-<!-- carousel container			 -->
-    <div class="owl-carousel owl-theme">
-      <div class="item">
-        <div class="services__item">
-          <h3>Assalamualaikum</h3>
-          <p class="services__item__text">Saya Fathi, Seorang Perancang Grafis, dengan pengalaman lebih dari delapan (8) Tahun. Pengguna ;</p>
-          <ul class="services__list">
-            <li>Adobe Photoshop, Illustrator</li>
-            <li>Corel Draw, Canva</li>
-            <li>Davinci Resolve, Capcut</li>
-          </ul>
+<div id="cursor"></div>
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll ke atas">↑</button>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLbBg(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLb()">✕</button>
+    <button class="lb-prev" onclick="lbNav(-1)">‹</button>
+    <button class="lb-next" onclick="lbNav(1)">›</button>
+    <img id="lbImg" src="" alt="" />
+    <div class="lb-caption">
+      <div class="lb-caption-title" id="lbTitle"></div>
+      <div class="lb-caption-sub" id="lbSub"></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">FTH<span>.</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks">
+    <a href="#layanan">Layanan</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-inner">
+
+    <!-- 2 Kolom -->
+    <div class="hero-cols">
+
+      <!-- Kiri: Nama besar + status -->
+      <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+        <div class="hero-name">
+          <span class="line1">FATHI</span>
+          <span class="line2">YAKAN<span class="dot">.</span></span>
+        </div>
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Graphic Designer & Web Creator · Tersedia untuk project</span>
         </div>
       </div>
-      <div class="item">
-        <div class="services__item">
-          <h3></br></h3>
-          <p class="services__item__text">Sarjana Teknik Informatika dari UNINDRA (2015), Saya Juga Pembuat Website menggunakan CMS Wordpress, HTML5, dan Bootstrap. saat ini saya bekerja di <a href="https://serikatpekerjaindosat.org/">SP Indosat</a></p>
-          
+
+      <!-- Kanan: About + CTA -->
+      <div class="hero-right" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+        <p class="hero-about-label">Tentang Saya</p>
+        <h2 class="hero-about-headline">Desainer yang percaya bahwa visual yang kuat adalah bahasa bisnis paling universal.</h2>
+        <p class="hero-about-body">
+          Sarjana Teknik Informatika UNINDRA (2015), memulai karier sejak 2010. Berpengalaman di berbagai industri — manufaktur, wisata, organisasi, hingga startup.
+        </p>
+        <p class="hero-about-body">
+          Saat ini aktif di <strong>SP Indosat</strong> dan membangun startup <strong>Rihlah Mulia</strong> — perjalanan ibadah yang khusyuk dan kegiatan outdoor yang menginspirasi.
+        </p>
+        <div class="hero-cta">
+          <a href="https://wa.me/6287808041992" target="_blank" rel="noopener noreferrer" class="btn-orange">Hire Me</a>
+          <a href="#layanan" class="btn-outline">Lihat Layanan</a>
         </div>
       </div>
-      <div class="item">
-        <div class="services__item">
-          <h3>Pengalaman</h3>
-          <p class="services__item__text">Bekerja Sejak 2010, saya memiliki pengalaman kerja dengan background berbeda - beda ;</p>
-          <ul class="services__list">
-            <li>PT. FS Power Control </li>
-            <li>PT. Kreasi Auto Kencana </li>
-            <li>PT. Mitra Wisata Mandiri </li>
-          </ul>
-        </div>
-      </div>
-      <div class="item">
-        <div class="services__item">
-          <h3></br></h3>
-          <p class="services__item__text"> selain itu Saya Juga Mengerjakan beberapa Project baik itu individu maupun lembaga ;</p>
-          <ul class="services__list">
-            <li>PT. Hamdan Natural Indonesia</li>
-            <li>Kantor Notaris & PPAT Achmad Untung</li>
-            <li>Sarana Kerohanian Islami (SKI) Indosat</li>
-          </ul>
-        </div>
-      </div>
-      <div class="item">
-        <div class="services__item">
-          <h3>'Side Hustle'</h3>
-          <p class="services__item__text">karena Saya Suka Berkegiatan luar ruang, sejak 2024 ini Saya Membuat <a href="http://rihlahmulia.com/">RIHLAH MULIA</a>; sebuah startup yang menawarkan Perjalanan Ibadah yang Khusyuk, dan kegiatan luar ruang yang Menginspirasi. </p>
-          
-        </div>
-      </div>
-      
+
     </div>
   </div>
 </section>
 
+<!-- ── LAYANAN ── -->
+<section id="layanan">
+  <div class="layanan-header" data-aos="fade-up" data-aos-duration="600">
+    <span class="layanan-title">LAYANAN</span>
+    <span class="layanan-sub">Klik untuk lihat portfolio</span>
+  </div>
 
+  <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
 
+    <!-- 1. Desain Grafis -->
+    <div class="service-row" id="row0">
+      <div class="service-header" onclick="toggleService(0)">
+        <div><div class="s-name">Desain Grafis</div><div class="s-tools">Flyer · Banner · Kemasan · Photoshop · Illustrator · CorelDraw</div></div>
+        <span class="s-toggle">+</span>
+      </div>
+      <div class="s-detail"><div class="s-detail-inner">
+        <p class="detail-label">Klien:</p>
+        <div style="margin-bottom:.75rem">
+          <span class="client-pill">@teman.umroh</span>
+          <span class="client-pill">PT. HNI</span>
+          <span class="client-pill">SKI Indosat</span>
+          <span class="client-pill">PT. Mitra Wisata</span>
+          <span class="client-pill">Personal Orders</span>
+        </div>
+        <div class="portfolio-divider"></div>
+        <p class="detail-label">Portfolio — klik gambar untuk perbesar:</p>
+        <!--
+          ╔══════════════════════════════════════════════════════╗
+          ║  CARA MENAMBAH GAMBAR:                               ║
+          ║  1. Buat folder "images/" di repo GitHub kamu        ║
+          ║  2. Upload foto karya ke folder tersebut             ║
+          ║  3. Ganti src="images/desain-1.jpg" dengan           ║
+          ║     nama file yang kamu upload                       ║
+          ╚══════════════════════════════════════════════════════╝
+        -->
+        <div class="portfolio-grid">
+          <div class="portfolio-card" onclick="openLb(0,0)">
+            <img src="images/desain-1.jpg" alt="Flyer Umroh" onerror="imgErr(this,'Flyer Umroh','@teman.umroh')" />
+            <div class="p-overlay"><div class="p-title">Flyer Umroh</div><div class="p-tag">@teman.umroh</div></div>
+          </div>
+          <div class="portfolio-card" onclick="openLb(0,1)">
+            <img src="images/desain-2.jpg" alt="Label HNI" onerror="imgErr(this,'Label HNI','PT. HNI')" />
+            <div class="p-overlay"><div class="p-title">Label HNI</div><div class="p-tag">PT. HNI</div></div>
+          </div>
+          <div class="portfolio-card" onclick="openLb(0,2)">
+            <img src="images/desain-3.jpg" alt="Banner SKI" onerror="imgErr(this,'Banner SKI','SKI Indosat')" />
+            <div class="p-overlay"><div class="p-title">Banner SKI</div><div class="p-tag">SKI Indosat</div></div>
+          </div>
+          <div class="portfolio-card" onclick="openLb(0,3)">
+            <img src="images/desain-4.jpg" alt="Flyer Wisata" onerror="imgErr(this,'Flyer Wisata','Mitra Wisata')" />
+            <div class="p-overlay"><div class="p-title">Flyer Wisata</div><div class="p-tag">Mitra Wisata</div></div>
+          </div>
+          <div class="portfolio-card" onclick="openLb(0,4)">
+            <img src="images/desain-5.jpg" alt="Personal Order" onerror="imgErr(this,'Personal Order','Custom')" />
+            <div class="p-overlay"><div class="p-title">Personal Order</div><div class="p-tag">Custom</div></div>
+          </div>
+          <div class="portfolio-card" onclick="openLb(0,5)">
+            <img src="images/desain-6.jpg" alt="Flyer Ramadhan" onerror="imgErr(this,'Flyer Ramadhan','Rihlah Mulia')" />
+            <div class="p-overlay"><div class="p-title">Flyer Ramadhan</div><div class="p-tag">Rihlah Mulia</div></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
 
+    <!-- 2. Video Editing -->
+    <div class="service-row" id="row1">
+      <div class="service-header" onclick="toggleService(1)">
+        <div><div class="s-name">Video Editing</div><div class="s-tools">Reels · Promo · Social Media · DaVinci Resolve · CapCut</div></div>
+        <span class="s-toggle">+</span>
+      </div>
+      <div class="s-detail"><div class="s-detail-inner">
+        <p class="detail-label">Klien:</p>
+        <div style="margin-bottom:.75rem">
+          <span class="client-pill">Rihlah Mulia</span>
+          <span class="client-pill">PT. HNI</span>
+          <span class="client-pill">Sabareuma</span>
+          <span class="client-pill">SP Indosat</span>
+        </div>
+        <div class="portfolio-divider"></div>
+        <p class="detail-label">Portfolio video:</p>
+        <!--
+          ╔══════════════════════════════════════════════════════╗
+          ║  CARA MENAMBAH VIDEO YOUTUBE:                        ║
+          ║  Ganti src di iframe dengan embed URL YouTube kamu   ║
+          ║  Contoh: https://www.youtube.com/embed/ID_VIDEO      ║
+          ╚══════════════════════════════════════════════════════╝
+        -->
+        <div class="video-grid">
+          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 1" allowfullscreen loading="lazy"></iframe></div>
+          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 2" allowfullscreen loading="lazy"></iframe></div>
+          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 3" allowfullscreen loading="lazy"></iframe></div>
+          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 4" allowfullscreen loading="lazy"></iframe></div>
+        </div>
+        <p class="video-hint">Ganti URL iframe di atas dengan embed YouTube kamu</p>
+      </div></div>
+    </div>
 
+    <!-- 3. Website -->
+    <div class="service-row" id="row2">
+      <div class="service-header" onclick="toggleService(2)">
+        <div><div class="s-name">Website</div><div class="s-tools">WordPress · HTML5 · Bootstrap</div></div>
+        <span class="s-toggle">+</span>
+      </div>
+      <div class="s-detail"><div class="s-detail-inner">
+        <p class="detail-label">Website yang pernah dibuat:</p>
+        <div class="web-list">
+          <a href="https://serikatpekerjaindosat.org" target="_blank" rel="noopener noreferrer" class="web-item">
+            <div><div class="web-item-name">serikatpekerjaindosat.org</div><div class="web-item-sub">Serikat Pekerja Indosat</div></div>
+            <span class="web-item-arrow">↗</span>
+          </a>
+          <a href="https://mitrawisatamandiri.com" target="_blank" rel="noopener noreferrer" class="web-item">
+            <div><div class="web-item-name">mitrawisatamandiri.com</div><div class="web-item-sub">PT. Mitra Wisata Mandiri</div></div>
+            <span class="web-item-arrow">↗</span>
+          </a>
+          <a href="https://achmaduntung.id" target="_blank" rel="noopener noreferrer" class="web-item">
+            <div><div class="web-item-name">achmaduntung.id</div><div class="web-item-sub">Personal Website</div></div>
+            <span class="web-item-arrow">↗</span>
+          </a>
+          <a href="https://rihlahmulia.com" target="_blank" rel="noopener noreferrer" class="web-item">
+            <div><div class="web-item-name">rihlahmulia.com</div><div class="web-item-sub">Startup Rihlah Mulia</div></div>
+            <span class="web-item-arrow">↗</span>
+          </a>
+        </div>
+      </div></div>
+    </div>
 
+    <!-- 4. Brand Identity -->
+    <div class="service-row" id="row3">
+      <div class="service-header" onclick="toggleService(3)">
+        <div><div class="s-name">Brand Identity</div><div class="s-tools">Logo · Panduan Visual · Illustrator</div></div>
+        <span class="s-toggle">+</span>
+      </div>
+      <div class="s-detail"><div class="s-detail-inner">
+        <p class="detail-label">Klien:</p>
+        <div style="margin-bottom:.75rem">
+          <span class="client-pill">Glowing Shop</span>
+          <span class="client-pill">Shemini Shop</span>
+          <span class="client-pill">Sabareuma</span>
+          <span class="client-pill">Luplup</span>
+        </div>
+        <div class="portfolio-divider"></div>
+        <p class="detail-label">Portfolio — klik gambar untuk perbesar:</p>
+        <div class="portfolio-grid">
+          <div class="portfolio-card" onclick="openLb(3,0)">
+            <img src="images/brand-1.jpg" alt="Logo Glowing Shop" onerror="imgErr(this,'Logo Glowing','Glowing Shop')" />
+            <div class="p-overlay"><div class="p-title">Logo Glowing Shop</div><div class="p-tag">Brand Identity</div></div>
+          </div>
+          <div class="portfolio-card" onclick="openLb(3,1)">
+            <img src="images/brand-2.jpg" alt="Logo Shemini" onerror="imgErr(this,'Logo Shemini','Shemini Shop')" />
+            <div class="p-overlay"><div class="p-title">Logo Shemini Shop</div><div class="p-tag">Brand Identity</div></div>
+          </div>
+          <div class="portfolio-card" onclick="openLb(3,2)">
+            <img src="images/brand-3.jpg" alt="Sabareuma" onerror="imgErr(this,'Sabareuma','Brand Identity')" />
+            <div class="p-overlay"><div class="p-title">Sabareuma</div><div class="p-tag">Brand Identity</div></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
 
+  </div>
+</section>
 
+<!-- ── CTA ── -->
+<section id="contact">
+  <div class="cta-inner">
+    <div class="cta-title1" data-aos="fade-up" data-aos-duration="700">LET'S WORK</div>
+    <div class="cta-title2" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">TOGETHER.</div>
+    <div class="cta-buttons" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
+      <a href="https://wa.me/6287808041992" target="_blank" rel="noopener noreferrer" class="btn-orange">WhatsApp ↗</a>
+      <a href="mailto:yakan.fathi@gmail.com" class="btn-outline-light">yakan.fathi@gmail.com</a>
+    </div>
+    <p class="cta-loc" data-aos="fade-up" data-aos-duration="600" data-aos-delay="220">Situdaun · Tenjolaya · Bogor · Indonesia</p>
+  </div>
+</section>
 
-	
+<!-- ── FOOTER ── -->
+<footer>
+  <a href="#" class="footer-logo">FATHIYAKAN.</a>
+  <span class="footer-copy">© 2026 All rights reserved</span>
+  <div class="footer-links">
+    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</footer>
 
-
-	
-<!--	Works gallery
-*********************************-->
-	<section id="works" class="works section">
-		<div class="container">
-			<div class="row">
-			<!-- header and buttons of the gallery -->
-				<div class="works__header">
-					<h2 class="col-xs-12 col-sm-3">Works</h2>
-					<nav class="works__header__nav col-xs-12 col-sm-9">
-						<button data-filter="*" class="works__nav__item works__nav__item_active"><span class="works__button_underline"></span>All</button>
-						<button data-filter=".design" class="works__nav__item"><span class="works__button_underline"></span>Design</button>
-						<button data-filter=".identy" class="works__nav__item"><span class="works__button_underline"></span>Video</button>
-						<button data-filter=".web" class="works__nav__item"><span class="works__button_underline"></span>Web</button>
-					</nav>
-				</div>
-			</div>
-
-			<div class="gallery">
-			<!-- gallery container -->
-				<div class="gallery__items">
-
-				<!-- gallery item -->
-					<div class="gallery__item gallery__item_1 col-xs-12 col-sm-6 design">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Design</span>
-							
-							<h3 class="item__hover__header"><a href="javascript:void">Flyer Halal Tour & Umroh</a></h3>
-							<h4 class="item__hover__header-small">Project instagram @teman.umroh</h4>
-							
-							<a href="images/magnificpopup/1Turki.jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/1Turki.jpg" alt>
-								+&nbsp;Zoom
-							</a>
-							<a href="images/magnificpopup/2Turki.jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/2Turki.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/temanumroh (1).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/temanumroh (1).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/temanumroh (2).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/temanumroh (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/temanumroh (3).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/temanumroh (3).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/temanumroh (4).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/temanumroh (4).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/banner.jpg" rel="nofollow" class="item__hover__zoom" title="Banner">
-								<img src="images/magnificpopup/banner.jpg" alt>
-							</a>
-
-
-						</div>
-					</div>
-
-				<!-- gallery item -->	
-					<div class="gallery__item gallery__item_2 col-xs-12 col-sm-6 design">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Design</span>
-							
-							<h3 class="item__hover__header"><a href="javascript:void">PT. Hamdan Natural Indonesia</a></h3>
-							<h4 class="item__hover__header-small">label kemasan & Flyer</h4>
-							
-							<a href="images/magnificpopup/alif (1).jpg" rel="nofollow" class="item__hover__zoom" title="Label Kemasan 1ltr">
-								<img src="images/magnificpopup/alif (1).jpg" alt>
-								+&nbsp;Zoom
-							</a>
-
-							<a href="images/magnificpopup/alif (2).jpg" rel="nofollow" class="item__hover__zoom" title="Label Kemasan 1ltr">
-								<img src="images/magnificpopup/alif (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/alif (3).jpg" rel="nofollow" class="item__hover__zoom" title="Label Kemasan 1ltr">
-								<img src="images/magnificpopup/alif (3).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/alif.jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/alif.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/1alif.jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/1alif.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/2alif.jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/2alif.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/cucio.jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/cucio.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/1cucio.jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/1cucio.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/hni (1).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/hni (1).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/hni (2).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/hni (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/hni (3).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/hni (3).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/hni (4).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur HNI">
-								<img src="images/magnificpopup/hni (4).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/hni (5).jpg" rel="nofollow" class="item__hover__zoom" title="Banner">
-								<img src="images/magnificpopup/hni (5).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/hni (6).jpg" rel="nofollow" class="item__hover__zoom" title="Banner">
-								<img src="images/magnificpopup/hni (6).jpg" alt>
-							</a>
-
-
-						</div>
-					</div>
-
-					<!-- gallery item -->	
-			<div class="gallery__item gallery__item_11 col-xs-12 col-sm-6 identy">
-				<div class="gallery__item__hover">
-					<span class="item__hover__line"></span><span class="item__hover__tag">Video</span>
-					
-					<h3 class="item__hover__header"><a href="javascript:void(0)">Reels Video</a></h3>
-					<h4 class="item__hover__header-small">Rihlah Mulia</h4>
-
-					<a href="images/video/Snapinsta.app_video_7846425CDB813E61B99162C89DA16FB1_video_dashinit.mp4"  rel="nofollow" class="video__hover__zoom" title="Reels Video">+&nbsp;Zoom</a>
-					<a href="images/video/Story Haji.mp4" rel="nofollow" class="video__hover__zoom" title="Reels Video"></a>
-				</div>
-			</div>
-				
-				
-				<!-- gallery item -->	
-					<div class="gallery__item gallery__item_3 col-xs-12 col-sm-6 design">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Design</span>
-							
-							<h3 class="item__hover__header"><a href="javascript:void">Project Ramadhan 1443 H</a></h3>
-							<h4 class="item__hover__header-small">SKI Indosat</h4>
-							
-							<a href="images/magnificpopup/skindosat (1).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer LOMBA">
-								<img src="images/magnificpopup/skindosat (1).jpg" alt>
-								+&nbsp;Zoom
-							</a>
-							<a href="images/magnificpopup/skindosat (2).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer KAJIAN">
-								<img src="images/magnificpopup/skindosat (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/SKI (1).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer SANLAT">
-								<img src="images/magnificpopup/SKI (1).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/ski8.jpg" rel="nofollow" class="item__hover__zoom" title="Flyer IED FITR">
-								<img src="images/magnificpopup/ski8.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/SKI (3).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer BAZAR">
-								<img src="images/magnificpopup/SKI (3).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/SKI (4).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer KAJIAN">
-								<img src="images/magnificpopup/SKI (4).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/SKI (5).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer ITIKAF">
-								<img src="images/magnificpopup/SKI (5).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/SKI (6).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer LOMBA">
-								<img src="images/magnificpopup/SKI (6).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/SKI (7).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer KAJIAN">
-								<img src="images/magnificpopup/SKI (7).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/ski9.jpg" rel="nofollow" class="item__hover__zoom" title="Flyer LOMBA">
-								<img src="images/magnificpopup/ski9.jpg" alt>
-							</a>
-						</div>
-					</div>
-
-				
-				<!-- gallery item -->
-				<div class="gallery__item gallery__item_12 col-xs-12 col-sm-6 web">
-					<div class="gallery__item__hover">
-						<span class="item__hover__line"></span><span class="item__hover__tag">Website</span>
-						
-						<h3 class="item__hover__header"><a href="https://serikatpekerjaindosat.org/" target="_blank" rel="noreferrer noopener">Website Serikat Pekerja Indosat</a></h3>
-						<h4 class="item__hover__header-small">Built by CMS Wordpress</h4>
-					</div>
-				</div>
-
-
-
-				<!-- gallery item -->	
-					<div class="gallery__item gallery__item_4 col-xs-12 col-sm-6 design">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Design</span>
-							
-							<h3 class="item__hover__header"><a href="javascript:void">Project Idul Adha 1443 H</a></h3>
-							<h4 class="item__hover__header-small">Sarana Kerohanian Islam (SKI) Indosat</h4>
-							
-							<a href="images/magnificpopup/qurban.jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban.jpg" alt>
-								+&nbsp;Zoom
-							</a>
-							<a href="images/magnificpopup/qurban (2).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/qurban (3).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (3).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/qurban (4).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (4).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/qurban (5).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (5).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/qurban (6).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (6).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/qurban (7).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (7).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/qurban (8).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (8).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/qurban (9).jpg" rel="nofollow" class="item__hover__zoom" title="flyer">
-								<img src="images/magnificpopup/qurban (9).jpg" alt>
-							</a>
-
-						</div>
-					</div>
-				
-				<!-- gallery item -->	
-					<div class="gallery__item gallery__item_5 col-xs-12 col-sm-6 design">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Design</span>
-							
-							<h3 class="item__hover__header"><a href="javascript:void">PT. Mitra Wisata Mandiri</a></h3>
-							<h4 class="item__hover__header-small">flyer & Brosur</h4>
-							
-							<a href="images/magnificpopup/mwm (1).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer Ramadhan">
-								<img src="images/magnificpopup/mwm (1).jpg" alt>
-								+&nbsp;Zoom
-							</a>
-
-							<a href="images/magnificpopup/mwm (1).png" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/mwm (1).png" alt>
-							</a>
-							<a href="images/magnificpopup/mwm (2).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/mwm (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/mwm (3).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/mwm (3).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/mwm (4).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/mwm (4).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/mwm (5).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/mwm (5).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/mwm (6).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/mwm (6).jpg" alt>
-							</a>
-
-						</div>
-					</div>
-
-
-					<!-- gallery item -->
-				<div class="gallery__item gallery__item_13 col-xs-12 col-sm-6 web">
-					<div class="gallery__item__hover">
-						<span class="item__hover__line"></span><span class="item__hover__tag">Website</span>
-						
-						<h3 class="item__hover__header"><a href="https://mitrawisatamandiri.com/" target="_blank" rel="noreferrer noopener">Website PT. Mitra Wisata Mandiri</a></h3>
-						<h4 class="item__hover__header-small">Built by CMS Wordpress</h4>
-					</div>
-				</div>
-
-
-					<!-- gallery item -->	
-					<div class="gallery__item gallery__item_7 col-xs-12 col-sm-6 design">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Design</span>
-							
-							<h3 class="item__hover__header"><a href="javascript:void">Serikat Pekerja Indosat</a></h3>
-							<h4 class="item__hover__header-small">flyer</h4>
-							
-							<a href="images/magnificpopup/spi (1).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/spi (1).jpg" alt>
-								+&nbsp;Zoom
-							</a>
-
-							<a href="images/magnificpopup/spi (10).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/spi (10).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (2).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/spi (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (3).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/spi (3).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (4).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/spi (4).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (5).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/spi (5).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (6).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/spi (6).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (7).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/spi (7).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (8).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/spi (8).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/spi (9).jpg" rel="nofollow" class="item__hover__zoom" title="Brosur">
-								<img src="images/magnificpopup/spi (9).jpg" alt>
-							</a>
-							
-
-						</div>
-					</div>
-
-
-				<!-- gallery item -->	
-					<div class="gallery__item gallery__item_6 col-xs-12 col-sm-6 design">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Design</span>
-							
-							<h3 class="item__hover__header"><a href="javascript:void">Order By Person</a></h3>
-							<h4 class="item__hover__header-small"></h4>
-							
-							<a href="images/magnificpopup/1LANGGENG.jpg" rel="nofollow" class="item__hover__zoom" title="Langgeng Trada Teknik">
-								<img src="images/magnificpopup/1LANGGENG.jpg" alt>
-								+&nbsp;Zoom
-							</a>
-
-							<a href="images/magnificpopup/2LANGGENG.jpg" rel="nofollow" class="item__hover__zoom" title="Langgeng Trada Teknik">
-								<img src="images/magnificpopup/2LANGGENG.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/3abeeIndo.jpg" rel="nofollow" class="item__hover__zoom" title="Abee Indonesia">
-								<img src="images/magnificpopup/3abeeIndo.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/4abeeIndo.jpg" rel="nofollow" class="item__hover__zoom" title="Abee Indonesia">
-								<img src="images/magnificpopup/4abeeIndo.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/gamis.jpg" rel="nofollow" class="item__hover__zoom" title="Saudah Busana">
-								<img src="images/magnificpopup/gamis.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/harga.jpg" rel="nofollow" class="item__hover__zoom" title="Saudah Busana">
-								<img src="images/magnificpopup/harga.jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order.png" rel="nofollow" class="item__hover__zoom" title="Label Shemini Shop">
-								<img src="images/magnificpopup/order.png" alt>
-							</a>
-							<a href="images/magnificpopup/order (1).jpg" rel="nofollow" class="item__hover__zoom" title="Banner Luplup">
-								<img src="images/magnificpopup/order (1).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (1).png" rel="nofollow" class="item__hover__zoom" title="Label Glowing Shop">
-								<img src="images/magnificpopup/order (1).png" alt>
-							</a>
-							<a href="images/magnificpopup/order (2).jpg" rel="nofollow" class="item__hover__zoom" title="Banner BriLINK">
-								<img src="images/magnificpopup/order (2).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (4).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer Masjid">
-								<img src="images/magnificpopup/order (4).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (5).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer Sabareuma">
-								<img src="images/magnificpopup/order (5).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (6).jpg" rel="nofollow" class="item__hover__zoom" title="Logo Glowing Shop">
-								<img src="images/magnificpopup/order (6).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (7).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/order (7).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (8).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer">
-								<img src="images/magnificpopup/order (8).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (9).jpg" rel="nofollow" class="item__hover__zoom" title="Label Shemini Shop">
-								<img src="images/magnificpopup/order (9).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/order (11).jpg" rel="nofollow" class="item__hover__zoom" title="Flyer Sabareuma">
-								<img src="images/magnificpopup/order (11).jpg" alt>
-							</a>
-							<a href="images/magnificpopup/WKG.jpg" rel="nofollow" class="item__hover__zoom" title="Flyer Sabareuma">
-								<img src="images/magnificpopup/WKG.jpg" alt>
-							</a>
-						</div>
-					</div>
-
-			<!-- gallery item -->	
-			<div class="gallery__item gallery__item_8 col-xs-12 col-sm-6 identy">
-				<div class="gallery__item__hover">
-					<span class="item__hover__line"></span><span class="item__hover__tag">Video</span>
-					
-					<h3 class="item__hover__header"><a href="javascript:void(0)">Reels Video</a></h3>
-					<h4 class="item__hover__header-small">PT.Hamdan Natural Indonesia</h4>
-
-					<a href="images/video/cucio.mp4" class="video__hover__zoom" title="Reels Video">+&nbsp;Zoom</a>
-					<a href="images/video/maksipel.mp4" rel="nofollow" class="video__hover__zoom" title="Reels Video"></a>
-				</div>
-			</div> 
-
-			
-			<!-- gallery item -->	
-			<div class="gallery__item gallery__item_10 col-xs-12 col-sm-6 identy">
-				<div class="gallery__item__hover">
-					<span class="item__hover__line"></span><span class="item__hover__tag">Video</span>
-					
-					<h3 class="item__hover__header"><a href="javascript:void(0)">Reels Video</a></h3>
-					<h4 class="item__hover__header-small">Sabareuma</h4>
-
-					<a href="images/video/1vid.mp4"  rel="nofollow" class="video__hover__zoom" title="Reels Video">+&nbsp;Zoom</a>
-				</div>
-			</div>
-
-					<!-- gallery item -->
-					<div class="gallery__item gallery__item_14 col-xs-12 col-sm-6 web">
-						<div class="gallery__item__hover">
-							<span class="item__hover__line"></span><span class="item__hover__tag">Website</span>
-							
-							<h3 class="item__hover__header"><a href="https://achmaduntung.id/" target="_blank" rel="noreferrer noopener">Kantor Notaris & PPAT Achmad Untung Wibowo SH MKn</a></h3>
-							<h4 class="item__hover__header-small">Built by CMS Wordpress</h4>
-						</div>
-					</div>
-
-			<!-- gallery item -->	
-			<div class="gallery__item gallery__item_15 col-xs-12 col-sm-6 identy">
-				<div class="gallery__item__hover">
-					<span class="item__hover__line"></span><span class="item__hover__tag">Video</span>
-					
-					<h3 class="item__hover__header"><a href="javascript:void(0)">Reels Video</a></h3>
-					<h4 class="item__hover__header-small">Serikat Pekerja Indosat</h4>
-
-					<a href="images/video/To All Mother Hero.mp4"  rel="nofollow" class="video__hover__zoom" title="Reels Video">+&nbsp;Zoom</a>
-					<a href="images/video/PKB.mov" rel="nofollow" class="video__hover__zoom" title="Reels Video"></a>
-					<a href="images/video/Reels Ramadhan.mp4" rel="nofollow" class="video__hover__zoom" title="Reels Video"></a>
-				</div>
-			</div>
-
-				<!-- gallery item -->	
-				<div class="gallery__item gallery__item_16 col-xs-12 col-sm-6 identy">
-					<div class="gallery__item__hover">
-						<span class="item__hover__line"></span><span class="item__hover__tag">Video</span>
-						
-						<h3 class="item__hover__header"><a href="javascript:void(0)">Reels Video</a></h3>
-						<h4 class="item__hover__header-small">Teman umroh</h4>
-	
-						<a href="images/video/Masjid Nabawi.mp4"  rel="nofollow" class="video__hover__zoom" title="Reels Video">+&nbsp;Zoom</a>
-						
-					</div>
-				</div>
-			
-			
-			
-
-
-
-			</div>
-		</div>
-	</section>
-	
-<!-- footer section -->
-<footer id="contact" class="footer">
-	<div class="container">
-	  <div class="col-md-4">
-		<h4>Contact</h4>
-		<p> Situdaun,Tenjolaya, Bogor.<br>
-		   <a href="https:wa.me/6287808041992"> Call  </a> Or <a href="mailto:yakan.fathi@gmail.com"> Email </a></p>
-		   
-	  </div>
-	  <div class="col-md-3">
-		<h4>Social presense</h4>
-		<ul class="footer-share">
-		  <li><a href="https://www.facebook.com/fathiyakann"><i class="fa fa-facebook"></i></a></li>
-		  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-		  <li><a href="https://maps.app.goo.gl/qiUREy5SGXjzcmBX6"><i class="fa fa-google-plus"></i></a></li>
-		</ul>
-	  </div>
-	  <div class="col-md-5">
-		<p>© 2024 All rights reserved. All Rights Reserved<br>
-		  Made with <i class="fa fa-heart pulse"></i> by fthykn</a></p>
-	  </div>
-	</div>
-  </footer>
-  <!-- footer section --> 
-	
-
-	<!-- jQuery -->
-	<script src="js/libs/jquery.min.js"></script>
-	<!-- carousel -->
-	<script src="js/libs/owl.carousel.min.js"></script>
-	<!-- slider -->
-	<script src="js/libs/slick.min.js"></script>
-	<!-- manipulation with text -->
-	<script src="js/libs/jquery.lettering-0.6.1.min.js"></script>
-	<script src="js/libs/jquery.textillate.js"></script>
-	<!-- gallery filter -->
-	<script src="js/libs/isotope.pkgd.min.js"></script>
-	<!-- popup -->
-	<script src="js/libs/jquery.magnific-popup.min.js"></script>
-	<!-- smooth scroll -->
-	<script src="js/libs/jquery.smooth-scroll.min.js"></script>
-	<!-- menu -->
-	<script src="js/menu.js"></script>
-	<!-- castom js script -->
-	<script src="js/main.js"></script>
-	
-	<!-- load more function -->
-	<script src="js/load_more.js"></script>
-	<!-- load more settings -->
-	<script>
-        items_set = [
-            {
-             filter: 'design',
-             backgroundImage: 'images/photos/laptop.jpg',
-             tagName: 'Design',
-             headingHref: 'javascript:void',
-             heading: 'Laptop and keyboard',
-             headingSmall: 'Awesome typing',
-             img: 'images/magnificpopup/alif.jpg',
-             title: 'Just simple block'
-         	},
-         	{
-         	 filter: 'identy',
-             backgroundImage: 'images/photos/cookie.jpg',
-             tagName: 'Identy',
-             headingHref: 'javascript:void',
-             heading: 'Cookie and Coffee',
-             headingSmall: 'Take a break',
-             img: 'images/magnificpopup/cookie.jpg',
-             title: 'Coffee Web Site'
-         	},
-         	{
-             filter: 'web',
-             backgroundImage: 'images/photos/essentials.jpg',
-             tagName: 'Web Design',
-             headingHref: 'javascript:void',
-             heading: 'Magazines',
-             headingSmall: 'Nice reading',
-             img: 'images/magnificpopup/essentials.jpg',
-             title: 'Coffee Web Site'
-         	},
-         	{
-         	 filter: 'identy',
-             backgroundImage: 'images/photos/softs.jpg',
-             tagName: 'Identy',
-             headingHref: 'javascript:void',
-             heading: 'Sheets of paper',
-             headingSmall: 'Getting correct information',
-             img: 'images/magnificpopup/softs.jpg',
-             title: 'Coffee Web Site'
-         	},
-        ];
-
-        $('.gallery__items').portfolio_addon({
-            load_count : 2,
-            items : items_set
-        });
-    </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    $(document).ready(function() {
-        $('.video__hover__zoom').magnificPopup({
-            type: 'iframe',
-            iframe: {
-                patterns: {
-                    customsrc: {
-                        index: '',
-                        src: '%id%'
-                    }
-                },
-                srcAction: 'iframe_src'
-            },
-            gallery: {
-                enabled: true
-            }
-        });
-    });
+AOS.init({ once:true, offset:60 });
+
+// ACCORDION
+function toggleService(i) {
+  const row = document.getElementById('row'+i);
+  const open = row.classList.contains('open');
+  document.querySelectorAll('.service-row').forEach(r => r.classList.remove('open'));
+  if (!open) row.classList.add('open');
+}
+
+// IMAGE FALLBACK
+function imgErr(el, title, sub) {
+  el.parentElement.innerHTML = `
+    <div class="portfolio-placeholder">
+      <div class="placeholder-icon">🖼</div>
+      <div class="placeholder-text">${title}<br><span style="font-size:8px;opacity:.5">${sub}</span></div>
+    </div>
+    <div class="p-overlay"><div class="p-title">${title}</div><div class="p-tag">${sub}</div></div>`;
+}
+
+// LIGHTBOX DATA
+const lbData = {
+  0: [
+    { src:'images/desain-1.jpg', title:'Flyer Umroh', sub:'@teman.umroh' },
+    { src:'images/desain-2.jpg', title:'Label HNI', sub:'PT. HNI' },
+    { src:'images/desain-3.jpg', title:'Banner SKI', sub:'SKI Indosat' },
+    { src:'images/desain-4.jpg', title:'Flyer Wisata', sub:'PT. Mitra Wisata' },
+    { src:'images/desain-5.jpg', title:'Personal Order', sub:'Custom' },
+    { src:'images/desain-6.jpg', title:'Flyer Ramadhan', sub:'Rihlah Mulia' },
+  ],
+  3: [
+    { src:'images/brand-1.jpg', title:'Logo Glowing Shop', sub:'Brand Identity' },
+    { src:'images/brand-2.jpg', title:'Logo Shemini Shop', sub:'Brand Identity' },
+    { src:'images/brand-3.jpg', title:'Sabareuma', sub:'Brand Identity' },
+  ]
+};
+let lbCat=0, lbIdx=0;
+function openLb(cat,idx){ if(!lbData[cat])return; lbCat=cat; lbIdx=idx; setLb(); document.getElementById('lightbox').classList.add('active'); document.body.style.overflow='hidden'; }
+function setLb(){ const d=lbData[lbCat][lbIdx]; document.getElementById('lbImg').src=d.src; document.getElementById('lbImg').alt=d.title; document.getElementById('lbTitle').textContent=d.title; document.getElementById('lbSub').textContent=d.sub; }
+function lbNav(dir){ lbIdx=(lbIdx+dir+lbData[lbCat].length)%lbData[lbCat].length; setLb(); }
+function closeLb(){ document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
+function closeLbBg(e){ if(e.target===document.getElementById('lightbox'))closeLb(); }
+document.addEventListener('keydown',e=>{ if(!document.getElementById('lightbox').classList.contains('active'))return; if(e.key==='Escape')closeLb(); if(e.key==='ArrowLeft')lbNav(-1); if(e.key==='ArrowRight')lbNav(1); });
+
+// CURSOR
+const cur=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{ cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
+document.querySelectorAll('a,button,.service-header,.client-pill,.portfolio-card').forEach(el=>{ el.addEventListener('mouseenter',()=>cur.classList.add('hovered')); el.addEventListener('mouseleave',()=>cur.classList.remove('hovered')); });
+
+// SCROLL TOP
+const stBtn=document.getElementById('scroll-top');
+window.addEventListener('scroll',()=>stBtn.classList.toggle('visible',window.scrollY>400));
+
+// MOBILE NAV
+const nt=document.getElementById('navToggle'),nl=document.getElementById('navLinks');
+nt.addEventListener('click',()=>{ nt.classList.toggle('open'); nl.classList.toggle('open'); });
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ nt.classList.remove('open'); nl.classList.remove('open'); }));
 </script>
-
-
-
-
-
-
-
-
 </body>
 </html>
