@@ -312,17 +312,17 @@
   </div>
 
   <div class="featured-grid" data-aos="fade-up" data-aos-duration="700" data-aos-delay="90">
-    <div class="portfolio-card featured-card" onclick="openLb(0,0)">
+    <div class="portfolio-card featured-card" onclick="openLb('featured',0)">
       <img src="images/photos/Tabung.jpg" alt="Umroh Campaign Visual" onerror="imgErr(this,'Umroh Campaign Visual','Social Media Design')" />
       <div class="p-overlay"><div class="p-title">Umroh Campaign Visual</div><div class="p-tag">Social Media Design</div></div>
     </div>
-    <div class="portfolio-card featured-card" onclick="openLb(0,2)">
-      <img src="images/photos/talks.png" alt="Corporate Event Banner" onerror="imgErr(this,'Corporate Event Banner','Graphic Design')" />
-      <div class="p-overlay"><div class="p-title">Corporate Event Banner</div><div class="p-tag">Graphic Design</div></div>
+    <div class="portfolio-card featured-card" onclick="openLb('featured',1)">
+      <img src="images/photos/talks.png" alt="Corporate Event Visual" onerror="imgErr(this,'Corporate Event Banner','Graphic Design')" />
+      <div class="p-overlay"><div class="p-title">Corporate Event Visual</div><div class="p-tag">Graphic Design</div></div>
     </div>
-    <div class="portfolio-card featured-card" onclick="openLb(3,2)">
-      <img src="images/photos/batik.jpg" alt="Brand Identity Project" onerror="imgErr(this,'Brand Identity Project','Logo & Visual Direction')" />
-      <div class="p-overlay"><div class="p-title">Brand Identity Project</div><div class="p-tag">Logo & Visual Direction</div></div>
+    <div class="portfolio-card featured-card" onclick="openLb('featured',2)">
+      <img src="images/photos/batik.jpg" alt="Brand Identity Project" onerror="imgErr(this,'Brand Identity Project','Pattern Design · Merchandise')" />
+      <div class="p-overlay"><div class="p-title">Brand Identity Project</div><div class="p-tag">Pattern Design · Merchandise</div></div>
     </div>
   </div>
 
@@ -351,27 +351,27 @@
         <div class="portfolio-divider"></div>
         <p class="detail-label">Portfolio — klik gambar untuk perbesar:</p>
         <div class="portfolio-grid">
-          <div class="portfolio-card" onclick="openLb(0,0)">
+          <div class="portfolio-card" onclick="openLb('graphic',0)">
             <img src="images/photos/Tabung3.jpg" alt="Flyer Umroh" onerror="imgErr(this,'Flyer Umroh','@teman.umroh')" />
             <div class="p-overlay"><div class="p-title">Flyer Umroh</div><div class="p-tag">@rihlahmulia</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb(0,1)">
-            <img src="images/desain-2.jpg" alt="Label HNI" onerror="imgErr(this,'Label HNI','PT. HNI')" />
+          <div class="portfolio-card" onclick="openLb('graphic',1)">
+            <img src="images/photos/alif.jpg" alt="Label HNI" onerror="imgErr(this,'Label HNI','PT. HNI')" />
             <div class="p-overlay"><div class="p-title">Label HNI</div><div class="p-tag">PT. HNI</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb(0,2)">
+          <div class="portfolio-card" onclick="openLb('graphic',2)">
             <img src="images/desain-3.jpg" alt="Banner SKI" onerror="imgErr(this,'Banner SKI','SP Indosat')" />
             <div class="p-overlay"><div class="p-title">Banner SKI</div><div class="p-tag">SKI Indosat</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb(0,3)">
+          <div class="portfolio-card" onclick="openLb('graphic',3)">
             <img src="images/desain-4.jpg" alt="Flyer Wisata" onerror="imgErr(this,'Flyer Wisata','Mitra Wisata')" />
             <div class="p-overlay"><div class="p-title">Flyer Wisata</div><div class="p-tag">Mitra Wisata</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb(0,4)">
+          <div class="portfolio-card" onclick="openLb('graphic',4)">
             <img src="images/desain-5.jpg" alt="Personal Order" onerror="imgErr(this,'Personal Order','Custom')" />
             <div class="p-overlay"><div class="p-title">Personal Order</div><div class="p-tag">Custom</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb(0,5)">
+          <div class="portfolio-card" onclick="openLb('graphic',5)">
             <img src="images/desain-6.jpg" alt="Flyer Ramadhan" onerror="imgErr(this,'Flyer Ramadhan','Rihlah Mulia')" />
             <div class="p-overlay"><div class="p-title">Flyer Ramadhan</div><div class="p-tag">Rihlah Mulia</div></div>
           </div>
@@ -425,15 +425,15 @@
         <div class="portfolio-divider"></div>
         <p class="detail-label">Portfolio — klik gambar untuk perbesar:</p>
         <div class="portfolio-grid">
-          <div class="portfolio-card" onclick="openLb(3,0)">
+          <div class="portfolio-card" onclick="openLb('brand',0)">
             <img src="images/brand-1.jpg" alt="Logo Glowing Shop" onerror="imgErr(this,'Logo Glowing','Glowing Shop')" />
             <div class="p-overlay"><div class="p-title">Logo Glowing Shop</div><div class="p-tag">Brand Identity</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb(3,1)">
+          <div class="portfolio-card" onclick="openLb('brand',1)">
             <img src="images/brand-2.jpg" alt="Logo Shemini" onerror="imgErr(this,'Logo Shemini','Shemini Shop')" />
             <div class="p-overlay"><div class="p-title">Logo Shemini Shop</div><div class="p-tag">Brand Identity</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb(3,2)">
+          <div class="portfolio-card" onclick="openLb('brand',2)">
             <img src="images/brand-3.jpg" alt="Sabareuma" onerror="imgErr(this,'Sabareuma','Brand Identity')" />
             <div class="p-overlay"><div class="p-title">Sabareuma</div><div class="p-tag">Brand Identity</div></div>
           </div>
@@ -527,20 +527,28 @@ function imgErr(el, title, sub) {
 
 // LIGHTBOX DATA
 const lbData = {
-  0: [
-    { src:'images/photos/Tabung3.jpg', title:'Flyer Umroh', sub:'@rihlahmulia' },
-    { src:'images/photos/Versi4.png', title:'CxO Talks', sub:'SP Indosat' },
-    { src:'images/photos/Aliansi.jpg', title:'Flyer Aksi', sub:'Free Palestine' },
-    { src:'images/photos/1Turki.jpg', title:'flyer', sub:'Teman Umroh' },
-    
+  featured: [
+    { src:'images/photos/Tabung4.jpg', title:'Umroh Campaign Visual', sub:'Social Media Design' },
+    { src:'images/photos/Versi4.png', title:'Corporate Event Visual', sub:'Graphic Design · Event Communication' },
+    { src:'images/photos/Flyer.jpg', title:'SP Indosat Batik Design', sub:'Pattern Design · Corporate Merchandise' },
   ],
-  3: [
-    { src:'images/photos/canvas.png', title:'Mozaik Photo', sub:'Brand Identity' },
-    { src:'images/photos/Lanyard.png', title:'Lanyard SP Indosat', sub:'Brand Identity' },
-    { src:'images/photos/Flyer.jpg', title:'Signature Batik SP Indosat', sub:'Brand Identity' },
+
+  graphic: [
+    { src:'images/photos/Tabung3.jpg', title:'Flyer Umroh', sub:'@rihlahmulia' },
+    { src:'images/photos/alif.jpg', title:'Label HNI', sub:'PT. HNI' },
+    { src:'images/desain-3.jpg', title:'Banner SKI', sub:'SP Indosat' },
+    { src:'images/desain-4.jpg', title:'Flyer Wisata', sub:'Mitra Wisata' },
+    { src:'images/desain-5.jpg', title:'Personal Order', sub:'Custom' },
+    { src:'images/desain-6.jpg', title:'Flyer Ramadhan', sub:'Rihlah Mulia' },
+  ],
+
+  brand: [
+    { src:'images/brand-1.jpg', title:'Logo Glowing Shop', sub:'Brand Identity' },
+    { src:'images/photos/Flyer.jpg', title:'Signature Batik SP Indosat', sub:'Pattern Design · Merchandise' },
+    { src:'images/brand-3.jpg', title:'Sabareuma', sub:'Brand Identity' },
   ]
 };
-let lbCat=0, lbIdx=0;
+let lbCat='featured', lbIdx=0;
 function openLb(cat,idx){ if(!lbData[cat])return; lbCat=cat; lbIdx=idx; setLb(); document.getElementById('lightbox').classList.add('active'); document.body.style.overflow='hidden'; }
 function setLb(){ const d=lbData[lbCat][lbIdx]; document.getElementById('lbImg').src=d.src; document.getElementById('lbImg').alt=d.title; document.getElementById('lbTitle').textContent=d.title; document.getElementById('lbSub').textContent=d.sub; }
 function lbNav(dir){ lbIdx=(lbIdx+dir+lbData[lbCat].length)%lbData[lbCat].length; setLb(); }
