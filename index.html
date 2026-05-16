@@ -85,12 +85,25 @@
     .btn-outline-light { border:.5px solid rgba(237,232,220,.28); color:#EDE8DC; padding:13px 1.8rem; border-radius:4px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; display:inline-block; transition:background .2s,transform .15s; font-family:'DM Sans',sans-serif; }
     .btn-outline-light:hover { background:rgba(237,232,220,.07); transform:translateY(-1px); }
 
-    /* ── LAYANAN ── */
+    /* ── MY WORKS ── */
     #layanan { background:var(--surface); padding:5rem 2.5rem; border-top:.5px solid var(--border); }
-    .layanan-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1.5rem; }
-    .layanan-title { font-family:'Bebas Neue',sans-serif; font-size:38px; letter-spacing:.05em; color:var(--ink); }
-    .layanan-sub { font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+    .layanan-header { display:grid; grid-template-columns:1fr minmax(280px,520px); gap:clamp(1.5rem,4vw,4rem); align-items:end; margin-bottom:2rem; }
+    .layanan-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(42px,7vw,86px); line-height:.9; letter-spacing:.03em; color:var(--ink); }
+    .layanan-sub { font-size:13px; line-height:1.8; letter-spacing:.02em; text-transform:none; color:var(--muted); }
     .layanan-label { font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem; }
+
+    .works-eyebrow { display:block; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:.7rem; }
+    .works-client-strip { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; padding:1rem 0 2.2rem; border-top:.5px solid var(--border); }
+    .works-client-label { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-right:.25rem; }
+    .featured-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:3.25rem; }
+    .featured-card { aspect-ratio:4/3; border-radius:8px; }
+    .featured-card .p-title { font-size:14px; }
+    .featured-card .p-tag { font-size:9px; }
+    .works-section-head { display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; padding-top:1.25rem; border-top:.5px solid var(--border); margin-bottom:.75rem; }
+    .works-section-title { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:.08em; color:var(--ink); }
+    .works-section-note { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+    .s-index { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:.05em; color:var(--orange); margin-right:1rem; min-width:32px; display:inline-block; }
+    .service-title-wrap { display:flex; align-items:flex-start; }
 
     /* ACCORDION */
     .service-row { border-bottom:.5px solid var(--border); overflow:hidden; }
@@ -98,7 +111,7 @@
     .service-header { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 0; cursor:pointer; user-select:none; }
     .service-header:hover .s-name { color:var(--orange); }
     .s-name { font-size:15px; color:var(--ink); transition:color .2s; font-weight:400; }
-    .s-tools { font-size:10px; color:var(--muted); letter-spacing:.06em; margin-top:2px; }
+    .s-tools { font-size:12px; color:var(--muted); letter-spacing:.06em; margin-top:2px; }
     .s-toggle { font-size:18px; color:var(--muted); transition:transform .35s ease; line-height:1; flex-shrink:0; }
     .service-row.open .s-toggle { transform:rotate(45deg); }
     .s-detail { max-height:0; overflow:hidden; transition:max-height .5s ease; }
@@ -199,6 +212,9 @@
       .nav-toggle { display:flex; }
       #hero { padding:1.5rem; padding-top:80px; }
       #layanan { padding:3rem 1.5rem; }
+      .layanan-header { grid-template-columns:1fr; gap:1rem; margin-bottom:1.5rem; }
+      .featured-grid { grid-template-columns:1fr; margin-bottom:2.25rem; }
+      .works-section-head { align-items:flex-start; flex-direction:column; }
       .portfolio-grid { grid-template-columns:repeat(2,1fr); }
       .web-list { grid-template-columns:1fr; }
       .video-grid { grid-template-columns:1fr; }
@@ -233,7 +249,7 @@
   <a href="#" class="nav-logo">FTH<span>.YKN</span></a>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navLinks">
-    <a href="#layanan">Layanan</a>
+    <a href="#layanan">Works</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -260,13 +276,13 @@
       <div class="hero-bottom-row" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
         <div class="hero-status">
           <span class="status-dot"></span>
-          <span class="status-text">Passionate about design and always trying to create clean, </br> engaging visuals that fit the purpose.</span>
+          <span class="status-text">Passionate about design and always trying to create clean,<br> engaging visuals that fit the purpose.</span>
         </div>
 
 
         <div class="hero-cta">
           <a href="https://wa.me/6287808041992" target="_blank" rel="noopener noreferrer" class="btn-orange">Let’s Talk</a>
-          <a href="#layanan" class="btn-outline">Lihat Layanan</a>
+          <a href="#layanan" class="btn-outline">Lihat Karya</a>
         </div>
       </div>
 
@@ -274,11 +290,45 @@
   </div>
 </section>
 
-<!-- ── LAYANAN ── -->
+<!-- ── MY WORKS ── -->
 <section id="layanan">
   <div class="layanan-header" data-aos="fade-up" data-aos-duration="600">
-    <span class="layanan-title">LAYANAN</span>
-    <span class="layanan-sub">Klik untuk lihat portfolio</span>
+    <div>
+      <span class="works-eyebrow">Selected Portfolio</span>
+      <span class="layanan-title">MY WORKS</span>
+    </div>
+    <p class="layanan-sub">
+      Kumpulan karya pilihan dari desain visual, website, brand identity, dan konten digital untuk kebutuhan bisnis, komunitas, dan personal project.
+    </p>
+  </div>
+
+  <div class="works-client-strip" data-aos="fade-up" data-aos-duration="650" data-aos-delay="60">
+    <span class="works-client-label">Worked with</span>
+    <span class="client-pill">SP Indosat</span>
+    <span class="client-pill">Rihlah Mulia</span>
+    <span class="client-pill">PT. HNI</span>
+    <span class="client-pill">Mitra Wisata Mandiri</span>
+    <span class="client-pill">Personal Orders</span>
+  </div>
+
+  <div class="featured-grid" data-aos="fade-up" data-aos-duration="700" data-aos-delay="90">
+    <div class="portfolio-card featured-card" onclick="openLb(0,0)">
+      <img src="images/photos/Tabung.jpg" alt="Umroh Campaign Visual" onerror="imgErr(this,'Umroh Campaign Visual','Social Media Design')" />
+      <div class="p-overlay"><div class="p-title">Umroh Campaign Visual</div><div class="p-tag">Social Media Design</div></div>
+    </div>
+    <div class="portfolio-card featured-card" onclick="openLb(0,2)">
+      <img src="images/desain-3.jpg" alt="Corporate Event Banner" onerror="imgErr(this,'Corporate Event Banner','Graphic Design')" />
+      <div class="p-overlay"><div class="p-title">Corporate Event Banner</div><div class="p-tag">Graphic Design</div></div>
+    </div>
+    <div class="portfolio-card featured-card" onclick="openLb(3,2)">
+      <img src="images/photos/Flyer.jpg" alt="Brand Identity Project" onerror="imgErr(this,'Brand Identity Project','Logo & Visual Direction')" />
+      <div class="p-overlay"><div class="p-title">Brand Identity Project</div><div class="p-tag">Logo & Visual Direction</div></div>
+    </div>
+  </div>
+
+  <div class="works-section-head" data-aos="fade-up" data-aos-duration="650">
+    <span class="works-section-title">WORK CATEGORIES</span>
+    <span class="works-section-note">Klik untuk lihat detail karya</span>
   </div>
 
   <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
@@ -286,7 +336,7 @@
     <!-- 1. Desain Grafis -->
     <div class="service-row" id="row0">
       <div class="service-header" onclick="toggleService(0)">
-        <div><div class="s-name">Desain Grafis</div><div class="s-tools">Flyer · Banner · Kemasan · Photoshop · Illustrator · CorelDraw</div></div>
+        <div class="service-title-wrap"><span class="s-index">01</span><div><div class="s-name">Desain Grafis</div><div class="s-tools">Campaign Visual · Poster · Flyer · Packaging · Social Media</div></div></div>
         <span class="s-toggle">+</span>
       </div>
       <div class="s-detail"><div class="s-detail-inner">
@@ -300,19 +350,10 @@
         </div>
         <div class="portfolio-divider"></div>
         <p class="detail-label">Portfolio — klik gambar untuk perbesar:</p>
-        <!--
-          ╔══════════════════════════════════════════════════════╗
-          ║  CARA MENAMBAH GAMBAR:                               ║
-          ║  1. Buat folder "images/" di repo GitHub kamu        ║
-          ║  2. Upload foto karya ke folder tersebut             ║
-          ║  3. Ganti src="images/desain-1.jpg" dengan           ║
-          ║     nama file yang kamu upload                       ║
-          ╚══════════════════════════════════════════════════════╝
-        -->
         <div class="portfolio-grid">
           <div class="portfolio-card" onclick="openLb(0,0)">
-            <img src="images/desain-1.jpg" alt="Flyer Umroh" onerror="imgErr(this,'Flyer Umroh','@teman.umroh')" />
-            <div class="p-overlay"><div class="p-title">Flyer Umroh</div><div class="p-tag">@teman.umroh</div></div>
+            <img src="images/photos/Tabung3.jpg" alt="Flyer Umroh" onerror="imgErr(this,'Flyer Umroh','@teman.umroh')" />
+            <div class="p-overlay"><div class="p-title">Flyer Umroh</div><div class="p-tag">@rihlahmulia</div></div>
           </div>
           <div class="portfolio-card" onclick="openLb(0,1)">
             <img src="images/desain-2.jpg" alt="Label HNI" onerror="imgErr(this,'Label HNI','PT. HNI')" />
@@ -338,53 +379,10 @@
       </div></div>
     </div>
 
-    <!-- 2. Video Editing -->
+    <!-- 2. Website -->
     <div class="service-row" id="row1">
       <div class="service-header" onclick="toggleService(1)">
-        <div><div class="s-name">Video Editing</div><div class="s-tools">Reels · Promo · Social Media · DaVinci Resolve · CapCut</div></div>
-        <span class="s-toggle">+</span>
-      </div>
-      <div class="s-detail"><div class="s-detail-inner">
-        <p class="detail-label">Klien:</p>
-        <div style="margin-bottom:.75rem">
-          <span class="client-pill">Rihlah Mulia</span>
-          <span class="client-pill">PT. HNI</span>
-          <span class="client-pill">Sabareuma</span>
-          <span class="client-pill">SP Indosat</span>
-        </div>
-        <div class="portfolio-divider"></div>
-        <p class="detail-label">Portfolio video:</p>
-        <!--
-          ╔══════════════════════════════════════════════════════╗
-          ║  CARA MENAMBAH VIDEO YOUTUBE:                        ║
-          ║  Ganti src di iframe dengan embed URL YouTube kamu   ║
-          ║  Contoh: https://www.youtube.com/embed/ID_VIDEO      ║
-          ╚══════════════════════════════════════════════════════╝
-        -->
-        <div class="video-grid">
-          <div class="video-card">
-            <div class="video-placeholder">
-              <div class="video-placeholder-icon">▶</div>
-              <div class="video-placeholder-title">Video Portfolio</div>
-              <div class="video-placeholder-sub">Add your YouTube embed URL here</div>
-            </div>
-          </div>
-          <div class="video-card">
-            <div class="video-placeholder">
-              <div class="video-placeholder-icon">▶</div>
-              <div class="video-placeholder-title">Social Media Edit</div>
-              <div class="video-placeholder-sub">Add your YouTube embed URL here</div>
-            </div>
-          </div>
-        </div>
-        <p class="video-hint">Jika video sudah siap, ganti placeholder ini dengan iframe embed YouTube kamu.</p>
-      </div></div>
-    </div>
-
-    <!-- 3. Website -->
-    <div class="service-row" id="row2">
-      <div class="service-header" onclick="toggleService(2)">
-        <div><div class="s-name">Website</div><div class="s-tools">WordPress · HTML5 · Bootstrap</div></div>
+        <div class="service-title-wrap"><span class="s-index">02</span><div><div class="s-name">Website</div><div class="s-tools">Landing Page · Company Profile · HTML5 · WordPress</div></div></div>
         <span class="s-toggle">+</span>
       </div>
       <div class="s-detail"><div class="s-detail-inner">
@@ -410,10 +408,10 @@
       </div></div>
     </div>
 
-    <!-- 4. Brand Identity -->
-    <div class="service-row" id="row3">
-      <div class="service-header" onclick="toggleService(3)">
-        <div><div class="s-name">Brand Identity</div><div class="s-tools">Logo · Panduan Visual · Illustrator</div></div>
+    <!-- 3. Brand Identity -->
+    <div class="service-row" id="row2">
+      <div class="service-header" onclick="toggleService(2)">
+        <div class="service-title-wrap"><span class="s-index">03</span><div><div class="s-name">Brand Identity</div><div class="s-tools">Logo · Visual Direction · Brand Assets</div></div></div>
         <span class="s-toggle">+</span>
       </div>
       <div class="s-detail"><div class="s-detail-inner">
@@ -443,6 +441,42 @@
       </div></div>
     </div>
 
+    <!-- 4. Video Editing -->
+    <div class="service-row" id="row3">
+      <div class="service-header" onclick="toggleService(3)">
+        <div class="service-title-wrap"><span class="s-index">04</span><div><div class="s-name">Video Editing</div><div class="s-tools">Reels · Promo Video · Short Content</div></div></div>
+        <span class="s-toggle">+</span>
+      </div>
+      <div class="s-detail"><div class="s-detail-inner">
+        <p class="detail-label">Klien:</p>
+        <div style="margin-bottom:.75rem">
+          <span class="client-pill">Rihlah Mulia</span>
+          <span class="client-pill">PT. HNI</span>
+          <span class="client-pill">Sabareuma</span>
+          <span class="client-pill">SP Indosat</span>
+        </div>
+        <div class="portfolio-divider"></div>
+        <p class="detail-label">Portfolio video:</p>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶</div>
+              <div class="video-placeholder-title">Video Portfolio</div>
+              <div class="video-placeholder-sub">Add your YouTube embed URL here</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶</div>
+              <div class="video-placeholder-title">Social Media Edit</div>
+              <div class="video-placeholder-sub">Add your YouTube embed URL here</div>
+            </div>
+          </div>
+        </div>
+        <p class="video-hint">Jika video sudah siap, ganti placeholder ini dengan iframe embed YouTube kamu.</p>
+      </div></div>
+    </div>
+
   </div>
 </section>
 
@@ -453,7 +487,7 @@
     <div class="cta-title2" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">TOGETHER.</div>
     <div class="cta-buttons" data-aos="fade-up" data-aos-duration="600" data-aos-delay="160">
       <a href="https://wa.me/6287808041992" target="_blank" rel="noopener noreferrer" class="btn-orange">WhatsApp ↗</a>
-      <a href="mailto:yakan.fathi@gmail.com" class="btn-outline-light">yakan.fathi@gmail.com</a>
+      <a href="mailto:yakan.fathi@gmail.com" class="btn-outline-light">Email</a>
     </div>
     <p class="cta-loc" data-aos="fade-up" data-aos-duration="600" data-aos-delay="220">Situdaun · Tenjolaya · Bogor · Indonesia</p>
   </div>
@@ -494,7 +528,7 @@ function imgErr(el, title, sub) {
 // LIGHTBOX DATA
 const lbData = {
   0: [
-    { src:'images/desain-1.jpg', title:'Flyer Umroh', sub:'@teman.umroh' },
+    { src:'images/photos/Tabung3.jpg', title:'Flyer Umroh', sub:'@rihlahmulia' },
     { src:'images/desain-2.jpg', title:'Label HNI', sub:'PT. HNI' },
     { src:'images/desain-3.jpg', title:'Banner SKI', sub:'SKI Indosat' },
     { src:'images/desain-4.jpg', title:'Flyer Wisata', sub:'PT. Mitra Wisata' },
@@ -504,7 +538,7 @@ const lbData = {
   3: [
     { src:'images/brand-1.jpg', title:'Logo Glowing Shop', sub:'Brand Identity' },
     { src:'images/brand-2.jpg', title:'Logo Shemini Shop', sub:'Brand Identity' },
-    { src:'images/brand-3.jpg', title:'Sabareuma', sub:'Brand Identity' },
+    { src:'images/photos/Flyer.jpg', title:'Signature Batik SP Indosat', sub:'Brand Identity' },
   ]
 };
 let lbCat=0, lbIdx=0;
