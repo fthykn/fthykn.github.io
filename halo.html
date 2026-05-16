@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fathiyakan — Graphic Designer & Web Creator</title>
-  <meta name="description" content="Perancang Grafis & Pembuat Website dengan pengalaman lebih dari 14 tahun." />
+  <meta name="description" content="Graphic designer and web creator focused on clean, purposeful visuals and simple digital experiences." />
   <meta name="author" content="Fathiyakan" />
   <meta property="og:title" content="Fathiyakan — Graphic Designer & Web Creator" />
-  <meta property="og:description" content="Perancang Grafis & Pembuat Website dengan pengalaman lebih dari 14 tahun." />
+  <meta property="og:description" content="Graphic designer and web creator focused on clean, purposeful visuals and simple digital experiences." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fthykn.github.io/" />
 
@@ -24,10 +24,11 @@
       --dark:#0E0E0C; --muted:rgba(26,20,16,0.42); --border:rgba(26,20,16,0.10);
     }
     html { scroll-behavior:smooth; }
+    [data-aos] { background:transparent !important; }
     body { background:var(--bg); color:var(--ink); font-family:'DM Sans',system-ui,sans-serif; font-weight:400; line-height:1.6; overflow-x:hidden; }
 
     /* CURSOR */
-    * { cursor:none; }
+    @media (min-width:769px) { * { cursor:none; } }
     #cursor { width:10px; height:10px; background:var(--orange); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .2s,height .2s,background .2s; mix-blend-mode:multiply; }
     #cursor.hovered { width:34px; height:34px; background:var(--accent); opacity:.5; }
 
@@ -36,7 +37,7 @@
     .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.12em; color:var(--ink); text-decoration:none; }
     .nav-logo span { color:var(--accent); }
     .nav-links { display:flex; gap:2rem; }
-    .nav-links a { font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+    .nav-links a { font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
     .nav-links a:hover { color:var(--orange); }
     .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; }
     .nav-toggle span { width:22px; height:1.5px; background:var(--ink); display:block; transition:transform .3s,opacity .3s; }
@@ -45,31 +46,36 @@
     .nav-toggle.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
 
     /* ── HERO ── */
-    #hero { min-height:100vh; background:var(--bg); display:flex; flex-direction:column; justify-content:flex-end; padding:2.5rem; position:relative; overflow:hidden; }
+    #hero { min-height:100vh; background:var(--bg); display:flex; flex-direction:column; justify-content:center; padding:7rem 2.5rem 3rem; position:relative; overflow:hidden; }
     #hero::before { content:''; position:absolute; inset:0; opacity:.025; background-image:radial-gradient(circle,#1A1410 1px,transparent 1px); background-size:24px 24px; pointer-events:none; }
     #hero::after { content:''; position:absolute; top:-15%; right:-8%; width:50%; height:70%; background:radial-gradient(ellipse,rgba(155,110,42,.09) 0%,transparent 65%); pointer-events:none; }
     .hero-inner { position:relative; z-index:1; }
 
     /* Status dot */
-    .hero-status { display:flex; align-items:center; gap:10px; margin-top:1.25rem; }
-    .status-dot { width:7px; height:7px; border-radius:50%; background:var(--orange); flex-shrink:0; animation:blink 1.8s infinite; }
+    .hero-status { display:flex; align-items:center; gap:10px; margin-top:0.25rem; }
+    .status-dot { width:12px; height:12px; border-radius:50%; background:var(--orange); flex-shrink:0; animation:blink 1.8s infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
     .status-text { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); }
 
-    /* 2-column: nama kiri, about kanan */
-    .hero-cols { display:grid; grid-template-columns:1.1fr 1fr; gap:3.5rem; align-items:center; }
-    .hero-name { line-height:.87; }
-    .hero-name .line1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(72px,9.5vw,138px); letter-spacing:-.01em; color:var(--ink); display:block; }
-    .hero-name .line2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(72px,9.5vw,138px); letter-spacing:-.01em; color:var(--accent); display:block; }
+    /* HERO inline flow */
+    .hero-inline { width:100%; max-width:1240px; margin:0 auto; display:flex; flex-direction:column; gap:1.6rem; }
+    .hero-main-row { display:flex; align-items:flex-end; gap:clamp(1.2rem,3vw,3rem); }
+    .hero-name { line-height:.78; flex-shrink:0; white-space:nowrap; }
+    .hero-name .line1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(78px,14vw,205px); letter-spacing:-.015em; color:var(--ink); display:inline; }
+    .hero-name .line2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(78px,14vw,205px); letter-spacing:-.015em; color:var(--accent); display:inline; margin-left:.04em; }
     .hero-name .dot { color:var(--ink); }
 
-    /* Kanan: about + CTA */
-    .hero-right { display:flex; flex-direction:column; gap:1.25rem; padding-bottom:.2rem; }
-    .hero-about-label { font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
-    .hero-about-headline { font-family:'DM Serif Display',Georgia,serif; font-size:19px; line-height:1.4; color:var(--ink); }
-    .hero-about-body { font-size:12.5px; color:var(--muted); line-height:1.88; }
+    .hero-statement { flex:1; min-width:280px; padding-bottom:clamp(.35rem,1.2vw,1rem); }
+    .hero-about-headline { max-width:520px; font-size:clamp(24px,3.15vw,48px); line-height:1.02; letter-spacing:-.045em; color:var(--ink); font-weight:400; }
+    .hero-about-headline::before { content:''; display:block; width:56px; height:1px; background:var(--orange); margin-bottom:1rem; }
+
+    .hero-bottom-row { display:grid; grid-template-columns:1fr auto; gap:clamp(1rem,3vw,2.5rem); align-items:center; padding-top:1.15rem; border-top:.5px solid var(--border); }
+    .hero-status { max-width:760px; }
+    .hero-support { display:none; }
+    .hero-about-label { font-family:'DM Serif Display',Georgia,serif; font-size:18px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
+    .hero-about-body { font-size:13.5px; color:var(--muted); line-height:1.75; }
     .hero-about-body strong { color:var(--ink); font-weight:500; }
-    .hero-cta { display:flex; gap:10px; flex-wrap:wrap; padding-top:1.25rem; border-top:.5px solid var(--border); }
+    .hero-cta { display:flex; gap:10px; flex-wrap:wrap; padding-top:0; border-top:none; justify-content:flex-end; }
 
     /* BUTTONS */
     .btn-orange { background:var(--orange); color:#fff; padding:13px 1.8rem; border-radius:4px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; display:inline-block; transition:background .2s,transform .15s; font-family:'DM Sans',sans-serif; font-weight:500; }
@@ -131,6 +137,10 @@
     .video-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .video-card { border-radius:6px; overflow:hidden; border:.5px solid var(--border); background:var(--bg); }
     .video-card iframe { width:100%; display:block; border:none; }
+    .video-placeholder { min-height:160px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:1rem; background:var(--bg); color:var(--muted); text-align:center; }
+    .video-placeholder-icon { font-size:22px; opacity:.28; }
+    .video-placeholder-title { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); }
+    .video-placeholder-sub { font-size:10px; color:var(--muted); }
     .video-hint { font-size:10px; color:var(--muted); margin-top:8px; letter-spacing:.04em; font-style:italic; }
 
     /* LIGHTBOX */
@@ -170,9 +180,17 @@
     #scroll-top:hover { transform:translateY(-2px); }
 
     /* RESPONSIVE */
+    @media (max-width:1080px) {
+      .hero-main-row { flex-direction:column; align-items:flex-start; gap:1rem; }
+      .hero-name .line1, .hero-name .line2 { font-size:clamp(76px,16vw,160px); }
+      .hero-about-headline { max-width:760px; font-size:clamp(30px,5.4vw,58px); }
+      .hero-bottom-row { grid-template-columns:1fr; }
+      .hero-cta { justify-content:flex-start; }
+    }
     @media (max-width:900px) {
-      .hero-cols { grid-template-columns:1fr; gap:2rem; }
-      .hero-name .line1, .hero-name .line2 { font-size:clamp(72px,18vw,120px); }
+      .hero-inline { gap:1.25rem; }
+      .hero-name { white-space:normal; }
+      .hero-name .line1, .hero-name .line2 { font-size:clamp(68px,18vw,124px); display:block; margin-left:0; }
     }
     @media (max-width:768px) {
       nav { padding:1rem 1.5rem; }
@@ -199,9 +217,9 @@
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLbBg(event)">
   <div class="lb-inner">
-    <button class="lb-close" onclick="closeLb()">✕</button>
-    <button class="lb-prev" onclick="lbNav(-1)">‹</button>
-    <button class="lb-next" onclick="lbNav(1)">›</button>
+    <button class="lb-close" onclick="closeLb()" aria-label="Close preview">✕</button>
+    <button class="lb-prev" onclick="lbNav(-1)" aria-label="Previous image">‹</button>
+    <button class="lb-next" onclick="lbNav(1)" aria-label="Next image">›</button>
     <img id="lbImg" src="" alt="" />
     <div class="lb-caption">
       <div class="lb-caption-title" id="lbTitle"></div>
@@ -212,7 +230,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">FTH<span>.</span></a>
+  <a href="#" class="nav-logo">FTH<span>.YKN</span></a>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navLinks">
     <a href="#layanan">Layanan</a>
@@ -224,33 +242,30 @@
 <section id="hero">
   <div class="hero-inner">
 
-    <!-- 2 Kolom -->
-    <div class="hero-cols">
+    <!-- Hero inline: nama besar dan headline dibuat seolah satu baris/alur -->
+    <div class="hero-inline">
 
-      <!-- Kiri: Nama besar + status -->
-      <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+      <div class="hero-main-row" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
         <div class="hero-name">
-          <span class="line1">FATHI</span>
-          <span class="line2">YAKAN<span class="dot">.</span></span>
+          <span class="line1">FATHI</span><span class="line2">YAKAN<span class="dot">.</span></span>
         </div>
-        <div class="hero-status">
-          <span class="status-dot"></span>
-          <span class="status-text">Graphic Designer & Web Creator · Tersedia untuk project</span>
+
+        <div class="hero-statement">
+          <h1 class="hero-about-headline">
+            Creating clean visuals and simple websites with purpose.
+          </h1>
         </div>
       </div>
 
-      <!-- Kanan: About + CTA -->
-      <div class="hero-right" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
-        <p class="hero-about-label">Tentang Saya</p>
-        <h2 class="hero-about-headline">Desainer yang percaya bahwa visual yang kuat adalah bahasa bisnis paling universal.</h2>
-        <p class="hero-about-body">
-          Sarjana Teknik Informatika UNINDRA (2015), memulai karier sejak 2010. Berpengalaman di berbagai industri — manufaktur, wisata, organisasi, hingga startup.
-        </p>
-        <p class="hero-about-body">
-          Saat ini aktif di <strong>SP Indosat</strong> dan membangun startup <strong>Rihlah Mulia</strong> — perjalanan ibadah yang khusyuk dan kegiatan outdoor yang menginspirasi.
-        </p>
+      <div class="hero-bottom-row" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Passionate about design and always trying to create clean, </br> engaging visuals that fit the purpose.</span>
+        </div>
+
+
         <div class="hero-cta">
-          <a href="https://wa.me/6287808041992" target="_blank" rel="noopener noreferrer" class="btn-orange">Hire Me</a>
+          <a href="https://wa.me/6287808041992" target="_blank" rel="noopener noreferrer" class="btn-orange">Let’s Talk</a>
           <a href="#layanan" class="btn-outline">Lihat Layanan</a>
         </div>
       </div>
@@ -347,12 +362,22 @@
           ╚══════════════════════════════════════════════════════╝
         -->
         <div class="video-grid">
-          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 1" allowfullscreen loading="lazy"></iframe></div>
-          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 2" allowfullscreen loading="lazy"></iframe></div>
-          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 3" allowfullscreen loading="lazy"></iframe></div>
-          <div class="video-card"><iframe height="160" src="https://www.youtube.com/embed/" title="Video 4" allowfullscreen loading="lazy"></iframe></div>
+          <div class="video-card">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶</div>
+              <div class="video-placeholder-title">Video Portfolio</div>
+              <div class="video-placeholder-sub">Add your YouTube embed URL here</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶</div>
+              <div class="video-placeholder-title">Social Media Edit</div>
+              <div class="video-placeholder-sub">Add your YouTube embed URL here</div>
+            </div>
+          </div>
         </div>
-        <p class="video-hint">Ganti URL iframe di atas dengan embed YouTube kamu</p>
+        <p class="video-hint">Jika video sudah siap, ganti placeholder ini dengan iframe embed YouTube kamu.</p>
       </div></div>
     </div>
 
@@ -439,8 +464,8 @@
   <a href="#" class="footer-logo">FATHIYAKAN.</a>
   <span class="footer-copy">© 2026 All rights reserved</span>
   <div class="footer-links">
-    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://wa.me/6287808041992" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="mailto:yakan.fathi@gmail.com">Email</a>
   </div>
 </footer>
 
