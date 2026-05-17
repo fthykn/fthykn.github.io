@@ -114,8 +114,8 @@
     .s-tools { font-size:12px; color:var(--muted); letter-spacing:.06em; margin-top:2px; }
     .s-toggle { font-size:18px; color:var(--muted); transition:transform .35s ease; line-height:1; flex-shrink:0; }
     .service-row.open .s-toggle { transform:rotate(45deg); }
-    .s-detail { max-height:0; overflow:hidden; transition:max-height .5s ease; }
-    .service-row.open .s-detail { max-height:700px; }
+    .s-detail { max-height:0; overflow:hidden; transition:max-height .45s ease; }
+    .service-row.open .s-detail { max-height:var(--detail-height, 0px); }
     .s-detail-inner { padding-bottom:1.5rem; }
     .detail-label { font-size:11px; color:var(--muted); margin-bottom:.6rem; }
     .client-pill { display:inline-block; font-size:10px; padding:4px 10px; border-radius:3px; border:.5px solid var(--border); color:var(--muted); margin:0 4px 4px 0; letter-spacing:.04em; transition:border-color .2s,color .2s; }
@@ -355,26 +355,35 @@
             <img src="images/photos/Tabung3.jpg" alt="Flyer Umroh" onerror="imgErr(this,'Flyer Umroh','@teman.umroh')" />
             <div class="p-overlay"><div class="p-title">Flyer Umroh</div><div class="p-tag">@rihlahmulia</div></div>
           </div>
+          <div class="portfolio-card" onclick="openLb('graphic',6)">
+            <img src="images/photos/tenjolaya.png" alt="Flyer" onerror="imgErr(this,'Flyer','Tenjolaya Trekking')" />
+            <div class="p-overlay"><div class="p-title">Flyer</div><div class="p-tag">Tenjolaya Trekking</div></div>
+          </div>
           <div class="portfolio-card" onclick="openLb('graphic',1)">
             <img src="images/photos/alif.jpg" alt="Label HNI" onerror="imgErr(this,'Label HNI','PT. HNI')" />
             <div class="p-overlay"><div class="p-title">Label HNI</div><div class="p-tag">PT. HNI</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb('graphic',2)">
-            <img src="images/desain-3.jpg" alt="Banner SKI" onerror="imgErr(this,'Banner SKI','SP Indosat')" />
+          <div class="portfolio-card" onclick="openLb('graphic',3)">
+            <img src="images/photos/qurban.jpg" alt="Banner SKI" onerror="imgErr(this,'Banner SKI','SP Indosat')" />
             <div class="p-overlay"><div class="p-title">Banner SKI</div><div class="p-tag">SKI Indosat</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb('graphic',3)">
-            <img src="images/desain-4.jpg" alt="Flyer Wisata" onerror="imgErr(this,'Flyer Wisata','Mitra Wisata')" />
-            <div class="p-overlay"><div class="p-title">Flyer Wisata</div><div class="p-tag">Mitra Wisata</div></div>
+          <div class="portfolio-card" onclick="openLb('graphic',5)">
+            <img src="images/photos/1Turki.jpg" alt="Flyer Wisata" onerror="imgErr(this,'Flyer Wisata','Mitra Wisata')" />
+            <div class="p-overlay"><div class="p-title">Flyer Wisata</div><div class="p-tag">Teman Umroh</div></div>
           </div>
           <div class="portfolio-card" onclick="openLb('graphic',4)">
-            <img src="images/desain-5.jpg" alt="Personal Order" onerror="imgErr(this,'Personal Order','Custom')" />
+            <img src="images/photos/hijab.jpg" alt="Personal Order" onerror="imgErr(this,'Personal Order','Custom')" />
             <div class="p-overlay"><div class="p-title">Personal Order</div><div class="p-tag">Custom</div></div>
           </div>
-          <div class="portfolio-card" onclick="openLb('graphic',5)">
-            <img src="images/desain-6.jpg" alt="Flyer Ramadhan" onerror="imgErr(this,'Flyer Ramadhan','Rihlah Mulia')" />
-            <div class="p-overlay"><div class="p-title">Flyer Ramadhan</div><div class="p-tag">Rihlah Mulia</div></div>
+          <div class="portfolio-card" onclick="openLb('graphic',7)">
+            <img src="images/photos/canvas.png" alt="Personal Order" onerror="imgErr(this,'Personal Order','Custom')" />
+            <div class="p-overlay"><div class="p-title">40x60 cm</div><div class="p-tag">Mozaik Foto</div></div>
           </div>
+          <div class="portfolio-card" onclick="openLb('graphic',8)">
+            <img src="images/photos/buku.png" alt="Personal Order" onerror="imgErr(this,'Personal Order','Cover')" />
+            <div class="p-overlay"><div class="p-title">Design & Layout</div><div class="p-tag">Cover Buku</div></div>
+          </div>
+          
         </div>
       </div></div>
     </div>
@@ -508,12 +517,35 @@
 AOS.init({ once:true, offset:60 });
 
 // ACCORDION
-function toggleService(i) {
-  const row = document.getElementById('row'+i);
-  const open = row.classList.contains('open');
-  document.querySelectorAll('.service-row').forEach(r => r.classList.remove('open'));
-  if (!open) row.classList.add('open');
+function setDetailHeight(row) {
+  const detail = row.querySelector('.s-detail');
+  const inner = row.querySelector('.s-detail-inner');
+  if (!detail || !inner) return;
+  detail.style.setProperty('--detail-height', (inner.scrollHeight + 40) + 'px');
 }
+
+function toggleService(i) {
+  const row = document.getElementById('row' + i);
+  if (!row) return;
+
+  const isOpen = row.classList.contains('open');
+
+  document.querySelectorAll('.service-row').forEach(r => {
+    r.classList.remove('open');
+    const detail = r.querySelector('.s-detail');
+    if (detail) detail.style.setProperty('--detail-height', '0px');
+  });
+
+  if (!isOpen) {
+    setDetailHeight(row);
+    row.classList.add('open');
+  }
+}
+
+window.addEventListener('resize', () => {
+  const openRow = document.querySelector('.service-row.open');
+  if (openRow) setDetailHeight(openRow);
+});
 
 // IMAGE FALLBACK
 function imgErr(el, title, sub) {
@@ -534,12 +566,17 @@ const lbData = {
   ],
 
   graphic: [
-    { src:'images/photos/Tabung3.jpg', title:'Flyer Umroh', sub:'@rihlahmulia' },
-    { src:'images/photos/alif.jpg', title:'Label HNI', sub:'PT. HNI' },
-    { src:'images/desain-3.jpg', title:'Banner SKI', sub:'SP Indosat' },
-    { src:'images/desain-4.jpg', title:'Flyer Wisata', sub:'Mitra Wisata' },
-    { src:'images/desain-5.jpg', title:'Personal Order', sub:'Custom' },
-    { src:'images/desain-6.jpg', title:'Flyer Ramadhan', sub:'Rihlah Mulia' },
+    { src:'images/photos/Tabung1.jpg', title:'Flyer Umroh', sub:'@rihlahmulia' },
+    { src:'images/photos/1alif.jpg', title:'Label HNI', sub:'PT. HNI' },
+    { src:'images/photos/1cucio.jpg', title:'Label HNI', sub:'PT. HNI' },
+    { src:'images/photos/qurban4.jpg', title:'Banner SKI', sub:'SP Indosat' },
+    { src:'images/photos/gamis.jpg', title:'Flyer', sub:'Saudah Busana' },
+    { src:'images/photos/2Turki.jpg', title:'Personal Order', sub:'Custom' },
+    { src:'images/photos/kawah.png', title:'Flyer', sub:'Tenjolaya Trekking' },
+    { src:'images/photos/canvas.png', title:'Personal Order', sub:'Mozaik Foto' },
+    { src:'images/photos/buku2.png', title:'Personal Order', sub:'Cover Buku' },
+    { src:'images/photos/buku3.png', title:'Personal Order', sub:'Cover Buku' },
+    { src:'images/photos/buku4.png', title:'Personal Order', sub:'Cover Buku' },
   ],
 
   brand: [
