@@ -147,10 +147,12 @@
     .web-item-arrow { font-size:11px; color:var(--orange); flex-shrink:0; }
 
     /* VIDEO GRID */
-    .video-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-    .video-card { border-radius:6px; overflow:hidden; border:.5px solid var(--border); background:var(--bg); }
-    .video-card iframe { width:100%; display:block; border:none; }
-    .video-placeholder { min-height:160px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:1rem; background:var(--bg); color:var(--muted); text-align:center; }
+    .video-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .video-card { border-radius:6px; overflow:hidden; border:.5px solid var(--border); background:var(--bg); aspect-ratio:16 / 9; }
+    .video-link-card { text-decoration:none; color:inherit; display:block; height:100%; }
+    .video-link-card:hover { border-color:rgba(212,101,26,.35); transform:translateY(-1px); }
+    .video-card iframe { width:100%; height:100%; display:block; border:none; }
+    .video-placeholder { width:100%; height:100%; min-height:unset; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:1rem; background:var(--bg); color:var(--muted); text-align:center; }
     .video-placeholder-icon { font-size:22px; opacity:.28; }
     .video-placeholder-title { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); }
     .video-placeholder-sub { font-size:10px; color:var(--muted); }
@@ -463,26 +465,31 @@
         <div class="portfolio-divider"></div>
         <p class="detail-label">Portfolio video:</p>
         <div class="video-grid">
-        <div class="video-card">
-          <iframe
-            height="220"
-            src="https://www.youtube.com/embed/vtJh2ZsZpJ4"
-            title="Video Portfolio"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-        </div>
-          <div class="video-card">
+          <a href="https://www.youtube.com/watch?v=vtJh2ZsZpJ4" target="_blank" rel="noopener noreferrer" class="video-card video-link-card">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶</div>
+              <div class="video-placeholder-title">Qurban Raya After Movie</div>
+              <div class="video-placeholder-sub">Video Editing · Watch on YouTube</div>
+            </div>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" class="video-card video-link-card">
             <div class="video-placeholder">
               <div class="video-placeholder-icon">▶</div>
               <div class="video-placeholder-title">Social Media Edit</div>
-              <div class="video-placeholder-sub">Add your YouTube embed URL here</div>
+              <div class="video-placeholder-sub">Reels · Promo · Coming Soon</div>
             </div>
-          </div>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" class="video-card video-link-card">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶</div>
+              <div class="video-placeholder-title">Campaign Video</div>
+              <div class="video-placeholder-sub">Event Recap · Coming Soon</div>
+            </div>
+          </a>
         </div>
-        <p class="video-hint">Jika video sudah siap, ganti placeholder ini dengan iframe embed YouTube kamu.</p>
+        <p class="video-hint">Video akan terbuka langsung di YouTube untuk menghindari kendala embed player.</p>
       </div></div>
     </div>
 
